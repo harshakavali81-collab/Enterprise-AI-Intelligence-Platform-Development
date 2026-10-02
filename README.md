@@ -16,7 +16,14 @@ An enterprise-oriented AI application that combines document retrieval, analytic
 Prerequisites: Python 3.11 or newer, Node.js 20, and Docker Desktop with Docker Compose v2.
 
 1. Copy `.env.example` to `.env` and set a unique `SECRET_KEY`, database password, and any provider credentials you need. Do not use the example values in a deployed environment.
-2. Start the data services and API:
+2. Install the Python dependencies and create the sample data and local SQLite database:
+
+   ```sh
+   python -m pip install -r requirements.txt
+   python generate_data.py
+   ```
+
+3. Start the data services and API:
 
    ```sh
    docker compose up --build
@@ -35,6 +42,7 @@ For frontend development, run `npm ci` and `npm start` from `frontend/`. Set `RE
 ## Validate
 
 ```sh
+python generate_data.py
 python -m pytest tests/ -q
 flake8 backend/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
 ```

@@ -11,12 +11,8 @@ class DatabaseConnection:
     """
     @staticmethod
     def get_connection():
-        # Check if local SQLite is active
-        temp_db = "/tmp/enterprise_ai.db"
-        target_path = temp_db if os.path.exists(temp_db) else LOCAL_SQLITE_PATH
-        
         # Connect in read-write or create mode
-        conn = sqlite3.connect(target_path)
+        conn = sqlite3.connect(LOCAL_SQLITE_PATH)
         conn.row_factory = sqlite3.Row
         return conn
 

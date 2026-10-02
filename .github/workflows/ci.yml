@@ -43,6 +43,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Generate sample data and SQLite database
+      run: python generate_data.py
+
     - name: Code formatting and linting
       run: |
         flake8 backend/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -69,10 +72,10 @@ jobs:
       with:
         node-version: 20
         cache: 'npm'
-        cache-dependency-path: frontend/package.json
+        cache-dependency-path: frontend/package-lock.json
 
     - name: Install Node dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build React Application
       run: npm run build --if-present

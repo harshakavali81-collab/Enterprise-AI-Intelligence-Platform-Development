@@ -17,7 +17,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
-      - ./sql/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -53,6 +52,15 @@ services:
       - ENVIRONMENT=production
     ports:
       - "8000:8000"
+    command: >
+      sh -c "if [ ! -f /app/data/sample/enterprise_ai.db ]; then
+      mkdir -p /tmp/enterprise-ai-bootstrap &&
+      cd /tmp/enterprise-ai-bootstrap &&
+      python /app/generate_data.py &&
+      mkdir -p /app/data/sample &&
+      cp data/sample/enterprise_ai.db /app/data/sample/enterprise_ai.db;
+      fi &&
+      uvicorn backend.main:app --host 0.0.0.0 --port 8000"
     depends_on:
       postgres:
         condition: service_healthy

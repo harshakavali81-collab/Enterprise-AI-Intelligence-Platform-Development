@@ -1,4 +1,5 @@
-import re, time, sqlite3, os
+import re, time, sqlite3
+from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 import pandas as pd
 
@@ -22,8 +23,9 @@ class SqlAgent:
     4. sales (sale_id, order_id, product_id, quantity, unit_price, revenue, cost, profit, sale_date, region, city)
     """
 
-    def __init__(self, db_path: str = "data/sample/enterprise_ai.db"):
-        self.db_path = db_path
+    def __init__(self, db_path: Optional[str] = None):
+        default_db_path = Path(__file__).resolve().parents[2] / "data" / "sample" / "enterprise_ai.db"
+        self.db_path = str(Path(db_path).resolve()) if db_path else str(default_db_path)
 
     def validate_sql(self, sql_query: str) -> Tuple[bool, str]:
         clean_sql = sql_query.strip().rstrip(";")
@@ -161,9 +163,8 @@ class SqlAgent:
             }
 
         try:
-            temp_db = "/tmp/enterprise_ai.db"
-            target_db = temp_db if os.path.exists(temp_db) else self.db_path
-            conn = sqlite3.connect(f"file:{target_db}?mode=ro", uri=True)
+            database_uri = f"{Path(self.db_path).as_uri()}?mode=ro"
+            conn = sqlite3.connect(database_uri, uri=True)
             cursor = conn.cursor()
             cursor.execute(sql)
             col_names = [desc[0] for desc in cursor.description]

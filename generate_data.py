@@ -1,4 +1,4 @@
-import os, sys, json, sqlite3, random, shutil
+import os, sys, json, sqlite3, random
 import pandas as pd
 import numpy as np
 import openpyxl
@@ -89,13 +89,13 @@ Hardware buffer stocks for IoT Gateways and Enterprise Edge Servers must be main
 """
 
 os.makedirs("data/sample", exist_ok=True)
-with open("data/sample/hr_policy.txt", "w") as f:
+with open("data/sample/hr_policy.txt", "w", encoding="utf-8") as f:
     f.write(hr_policy)
-with open("data/sample/travel_and_expense_policy.txt", "w") as f:
+with open("data/sample/travel_and_expense_policy.txt", "w", encoding="utf-8") as f:
     f.write(expense_policy)
-with open("data/sample/q3_financial_performance.txt", "w") as f:
+with open("data/sample/q3_financial_performance.txt", "w", encoding="utf-8") as f:
     f.write(financial_report)
-with open("data/sample/hyderabad_operations_sop.txt", "w") as f:
+with open("data/sample/hyderabad_operations_sop.txt", "w", encoding="utf-8") as f:
     f.write(sop_hyderabad)
 
 print("Sample documents created.")
@@ -214,12 +214,12 @@ df_sales.to_csv("data/sample/sales_transactions.csv", index=False)
 
 print(f"Generated {len(df_customers)} customers, {len(df_products)} products, {len(df_orders)} orders, {len(df_sales)} sales.")
 
-# 3. Create SQLite DB in /tmp/ and copy over
-temp_db = "/tmp/enterprise_ai.db"
-if os.path.exists(temp_db):
-    os.remove(temp_db)
+# 3. Create the local SQLite database used by the analytics agent
+database_path = os.path.join("data", "sample", "enterprise_ai.db")
+if os.path.exists(database_path):
+    os.remove(database_path)
 
-conn = sqlite3.connect(temp_db)
+conn = sqlite3.connect(database_path)
 cursor = conn.cursor()
 
 cursor.executescript("""
@@ -433,7 +433,6 @@ df_sales.to_sql("sales", conn, if_exists="append", index=False)
 conn.commit()
 conn.close()
 
-shutil.copy(temp_db, "data/sample/enterprise_ai.db")
 print("SQLite database saved to data/sample/enterprise_ai.db")
 
 # 4. Excel Data Dictionary

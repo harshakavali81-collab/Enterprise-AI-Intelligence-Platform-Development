@@ -23,6 +23,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ /app/backend/
 COPY sql/ /app/sql/
 COPY data/ /app/data/
+COPY generate_data.py /app/generate_data.py
 
 EXPOSE 8000
 
