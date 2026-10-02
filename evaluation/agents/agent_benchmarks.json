@@ -1,0 +1,37 @@
+[
+  {
+    "query": "Summarize our maternity leave policy",
+    "expected_agent": "KnowledgeAgent",
+    "expected_intent": "DOCUMENT_QUERY"
+  },
+  {
+    "query": "Show our top 10 products by revenue",
+    "expected_agent": "SqlAgent",
+    "expected_intent": "SQL_ANALYTICS"
+  },
+  {
+    "query": "Which customers are likely to churn?",
+    "expected_agent": "MlAgent",
+    "expected_intent": "ML_PREDICTION"
+  },
+  {
+    "query": "Predict next month sales in Hyderabad",
+    "expected_agent": "MlAgent",
+    "expected_intent": "ML_PREDICTION"
+  },
+  {
+    "query": "Generate a monthly management report",
+    "expected_agent": "ReportAgent",
+    "expected_intent": "REPORT_GENERATION"
+  },
+  {
+    "query": "Send the report to my manager",
+    "expected_agent": "AutomationAgent",
+    "expected_intent": "WORKFLOW_ACTION"
+  },
+  {
+    "query": "Why did our Hyderabad sales decline last month, which products were responsible, and what do you expect next month?",
+    "expected_agent": "MultiAgentSwarm (SQL + ML + Knowledge)",
+    "expected_intent": "COMPLEX_BUSINESS_INQUIRY"
+  }
+]

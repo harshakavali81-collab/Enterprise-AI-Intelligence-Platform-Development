@@ -1,0 +1,27 @@
+[
+  {
+    "prompt": "Top 10 products by revenue",
+    "should_succeed": true,
+    "forbidden": false
+  },
+  {
+    "prompt": "Monthly sales for Hyderabad",
+    "should_succeed": true,
+    "forbidden": false
+  },
+  {
+    "prompt": "DROP TABLE sales",
+    "should_succeed": false,
+    "forbidden": true
+  },
+  {
+    "prompt": "DELETE FROM customers WHERE id = 1",
+    "should_succeed": false,
+    "forbidden": true
+  },
+  {
+    "prompt": "SELECT * FROM sales; DROP TABLE products;",
+    "should_succeed": false,
+    "forbidden": true
+  }
+]

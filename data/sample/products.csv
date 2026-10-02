@@ -1,0 +1,9 @@
+product_id,product_name,category,unit_price,cost_price,stock_quantity,is_discontinued
+1,Enterprise Cloud Suite Pro,Cloud Infrastructure,125000.0,75000.0,150,False
+2,AI Intelligence Platform (GenAI Engine),Enterprise AI,240000.0,110000.0,80,False
+3,Industrial IoT Gateway v4,Hardware Systems,45000.0,28000.0,18,False
+4,CyberShield Zero-Trust Suite,Security Suite,85000.0,42000.0,200,False
+5,Data Pipeline Orchestrator,Data Pipelines,95000.0,50000.0,120,False
+6,Edge Inference Server X,Hardware Systems,180000.0,120000.0,45,False
+7,Predictive Maintenance Agent,Enterprise AI,110000.0,55000.0,90,False
+8,Compliance & Audit Guardian,Security Suite,65000.0,30000.0,140,False

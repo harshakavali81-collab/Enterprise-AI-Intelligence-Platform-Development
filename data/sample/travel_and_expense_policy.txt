@@ -1,0 +1,21 @@
+# Enterprise Travel & Reimbursement Policy (Version 2026.2)
+Department: Finance & Corporate Operations
+Category: Policy
+Access Level: EMPLOYEE
+Effective Date: March 15, 2026
+Document ID: DOC-FIN-2026-004
+
+## 1. Domestic Travel Allowances
+For domestic business travel across Tier-1 cities (Hyderabad, Bengaluru, Mumbai, Delhi NCR, Chennai):
+- Hotel accommodation allowance: Up to ₹6,500 per night (inclusive of taxes).
+- Daily meal allowance (per diem): Up to ₹1,800 per day without individual itemized receipts, or ₹2,500 with receipts.
+- Inter-city transportation: Economy airfare or Tier-2 AC railway travel.
+
+## 2. Employee Reimbursement Limits & Approval Matrix
+- Minor Out-of-Pocket Expenses: Team leads can approve expense reports up to ₹10,000.
+- Departmental Operational Expenses: Managers can approve claims up to ₹50,000.
+- Capital or High-Value Expenditure: Department Directors and Vice Presidents must approve any claims exceeding ₹50,000.
+- Client Entertainment: Fixed limit of ₹4,000 per attendee, pre-approved by the Sales Director.
+
+## 3. Submission Deadlines & Audit
+All travel and business expense reimbursement requests must be submitted within 30 calendar days of expense incurrence via the Enterprise AI ERP Portal. Claims submitted beyond 45 days will require special executive exception approval.

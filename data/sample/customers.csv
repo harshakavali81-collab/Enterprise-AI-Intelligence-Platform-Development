@@ -1,0 +1,201 @@
+customer_id,customer_name,email,phone,city,state,segment,signup_date,is_active,is_churned,churn_risk_score,total_spend,order_frequency,days_since_last_order,support_tickets_count
+1,Enterprise Client 1,contact@client1.com,+91-9821668732,Chennai,Tamil Nadu,Enterprise,2024-10-14,True,False,0.0177,846421.48,8,72,1
+2,Enterprise Client 2,contact@client2.com,+91-9885329037,Hyderabad,Telangana,Enterprise,2024-04-23,True,False,0.01,1410710.58,8,57,0
+3,Enterprise Client 3,contact@client3.com,+91-9831429110,Chennai,Tamil Nadu,SMB,2024-12-14,True,False,0.0164,1298418.09,8,109,4
+4,Enterprise Client 4,contact@client4.com,+91-9860992979,Mumbai,Maharashtra,Mid-Market,2024-02-12,True,False,0.01,3353715.91,25,57,1
+5,Enterprise Client 5,contact@client5.com,+91-9884093639,Mumbai,Maharashtra,Mid-Market,2024-05-27,True,False,0.01,3956549.28,24,13,1
+6,Enterprise Client 6,contact@client6.com,+91-9816150444,Chennai,Tamil Nadu,Mid-Market,2024-11-08,True,False,0.01,1863370.8,19,94,1
+7,Enterprise Client 7,contact@client7.com,+91-9859684848,Mumbai,Maharashtra,SMB,2024-06-07,True,False,0.4797,580126.23,4,61,7
+8,Enterprise Client 8,contact@client8.com,+91-9881691040,Chennai,Tamil Nadu,Mid-Market,2024-12-08,True,True,0.01,1424863.18,21,176,2
+9,Enterprise Client 9,contact@client9.com,+91-9817507864,Bengaluru,Karnataka,Mid-Market,2024-04-27,True,False,0.01,4662850.28,21,71,3
+10,Enterprise Client 10,contact@client10.com,+91-9838538251,Hyderabad,Telangana,SMB,2024-11-16,True,False,0.2279,598924.36,9,104,5
+11,Enterprise Client 11,contact@client11.com,+91-9845264581,Delhi,Delhi,SMB,2024-12-19,True,True,0.01,1285768.46,15,166,2
+12,Enterprise Client 12,contact@client12.com,+91-9878387461,Delhi,Delhi,SMB,2024-08-03,True,False,0.01,1257962.28,12,104,2
+13,Enterprise Client 13,contact@client13.com,+91-9889978790,Hyderabad,Telangana,SMB,2024-08-17,True,False,0.01,1889905.51,21,41,6
+14,Enterprise Client 14,contact@client14.com,+91-9845812670,Mumbai,Maharashtra,SMB,2024-11-11,True,False,0.01,5063970.01,22,4,8
+15,Enterprise Client 15,contact@client15.com,+91-9878139880,Hyderabad,Telangana,Mid-Market,2024-02-28,True,False,0.0409,762169.94,15,42,4
+16,Enterprise Client 16,contact@client16.com,+91-9860185867,Chennai,Tamil Nadu,Mid-Market,2024-03-18,True,True,0.01,3438123.4,17,165,2
+17,Enterprise Client 17,contact@client17.com,+91-9851273847,Pune,Maharashtra,SMB,2024-04-02,True,True,0.01,1893665.7,11,155,1
+18,Enterprise Client 18,contact@client18.com,+91-9881498611,Bengaluru,Karnataka,SMB,2024-03-05,True,False,0.0291,698930.7,3,22,1
+19,Enterprise Client 19,contact@client19.com,+91-9836998038,Chennai,Tamil Nadu,Mid-Market,2024-12-10,True,True,0.8098,697584.94,6,142,6
+20,Enterprise Client 20,contact@client20.com,+91-9870597444,Delhi,Delhi,SMB,2024-02-08,True,True,0.01,1914300.25,12,168,8
+21,Enterprise Client 21,contact@client21.com,+91-9817901903,Bengaluru,Karnataka,Enterprise,2024-04-03,True,False,0.01,3581127.23,19,7,3
+22,Enterprise Client 22,contact@client22.com,+91-9838754377,Hyderabad,Telangana,SMB,2024-09-05,True,False,0.01,1861519.7,17,20,7
+23,Enterprise Client 23,contact@client23.com,+91-9823009833,Chennai,Tamil Nadu,SMB,2024-11-14,True,True,0.01,3195187.37,19,148,7
+24,Enterprise Client 24,contact@client24.com,+91-9818135295,Mumbai,Maharashtra,Mid-Market,2024-07-24,True,True,0.01,1525027.12,24,121,1
+25,Enterprise Client 25,contact@client25.com,+91-9847385696,Mumbai,Maharashtra,SMB,2024-08-08,True,False,0.1059,783180.14,8,29,8
+26,Enterprise Client 26,contact@client26.com,+91-9811980765,Hyderabad,Telangana,Mid-Market,2024-02-25,True,True,0.98,250588.33,4,142,8
+27,Enterprise Client 27,contact@client27.com,+91-9810289289,Bengaluru,Karnataka,Enterprise,2024-07-09,True,True,0.01,1654989.2,16,126,6
+28,Enterprise Client 28,contact@client28.com,+91-9898834863,Delhi,Delhi,Mid-Market,2024-12-16,True,True,0.01,7172536.14,24,180,8
+29,Enterprise Client 29,contact@client29.com,+91-9816729990,Bengaluru,Karnataka,Enterprise,2024-10-16,True,True,0.8823,389590.15,2,57,8
+30,Enterprise Client 30,contact@client30.com,+91-9820752378,Pune,Maharashtra,SMB,2024-03-03,True,True,0.945,385319.37,6,137,8
+31,Enterprise Client 31,contact@client31.com,+91-9821003626,Pune,Maharashtra,Enterprise,2024-07-22,True,False,0.01,1039631.5,13,62,3
+32,Enterprise Client 32,contact@client32.com,+91-9842035886,Pune,Maharashtra,Mid-Market,2024-05-13,True,False,0.0716,909583.2,9,82,5
+33,Enterprise Client 33,contact@client33.com,+91-9885563727,Bengaluru,Karnataka,Mid-Market,2024-02-03,True,False,0.01,1935664.49,15,78,1
+34,Enterprise Client 34,contact@client34.com,+91-9842787299,Pune,Maharashtra,Enterprise,2024-06-10,True,False,0.01,1416574.22,5,69,1
+35,Enterprise Client 35,contact@client35.com,+91-9850181935,Bengaluru,Karnataka,Mid-Market,2024-11-04,True,True,0.01,2889473.57,23,141,8
+36,Enterprise Client 36,contact@client36.com,+91-9847816686,Bengaluru,Karnataka,Mid-Market,2024-10-07,True,False,0.01,4519341.85,24,29,4
+37,Enterprise Client 37,contact@client37.com,+91-9816818112,Chennai,Tamil Nadu,Mid-Market,2024-02-21,True,True,0.01,5527792.28,21,177,8
+38,Enterprise Client 38,contact@client38.com,+91-9895511909,Delhi,Delhi,SMB,2024-05-06,True,False,0.5512,133389.13,1,13,2
+39,Enterprise Client 39,contact@client39.com,+91-9830005727,Chennai,Tamil Nadu,Mid-Market,2024-09-02,True,False,0.0138,943513.65,18,111,1
+40,Enterprise Client 40,contact@client40.com,+91-9858942697,Mumbai,Maharashtra,Mid-Market,2024-01-12,True,False,0.01,1146059.32,14,39,4
+41,Enterprise Client 41,contact@client41.com,+91-9893303777,Bengaluru,Karnataka,Mid-Market,2024-12-05,True,True,0.9599,553678.63,4,172,8
+42,Enterprise Client 42,contact@client42.com,+91-9865259205,Bengaluru,Karnataka,SMB,2024-11-28,True,False,0.0262,786752.27,14,47,5
+43,Enterprise Client 43,contact@client43.com,+91-9873174945,Chennai,Tamil Nadu,SMB,2024-04-07,True,False,0.01,1481061.76,6,70,1
+44,Enterprise Client 44,contact@client44.com,+91-9863481198,Delhi,Delhi,Mid-Market,2024-06-09,True,False,0.2477,447328.87,8,60,3
+45,Enterprise Client 45,contact@client45.com,+91-9854446182,Hyderabad,Telangana,SMB,2024-01-04,True,False,0.01,2524445.22,12,73,6
+46,Enterprise Client 46,contact@client46.com,+91-9856397338,Mumbai,Maharashtra,Enterprise,2024-12-26,True,True,0.8472,154201.27,2,69,6
+47,Enterprise Client 47,contact@client47.com,+91-9810226999,Mumbai,Maharashtra,Mid-Market,2024-09-26,True,True,0.5363,585195.43,4,132,3
+48,Enterprise Client 48,contact@client48.com,+91-9899152472,Pune,Maharashtra,Mid-Market,2024-06-20,True,True,0.1752,987387.58,7,173,1
+49,Enterprise Client 49,contact@client49.com,+91-9864009265,Mumbai,Maharashtra,Mid-Market,2024-12-10,True,False,0.01,6600281.01,24,33,8
+50,Enterprise Client 50,contact@client50.com,+91-9892613013,Pune,Maharashtra,Enterprise,2024-10-10,True,False,0.01,6272000.19,22,109,2
+51,Enterprise Client 51,contact@client51.com,+91-9853251559,Delhi,Delhi,Mid-Market,2024-08-15,True,False,0.01,1217284.29,10,2,6
+52,Enterprise Client 52,contact@client52.com,+91-9898429450,Delhi,Delhi,Mid-Market,2024-02-10,True,True,0.01,3974941.6,16,132,2
+53,Enterprise Client 53,contact@client53.com,+91-9836726767,Pune,Maharashtra,Mid-Market,2024-03-01,True,True,0.1726,806814.8,11,160,3
+54,Enterprise Client 54,contact@client54.com,+91-9871124923,Hyderabad,Telangana,Enterprise,2024-07-21,True,True,0.01,5248688.47,20,123,1
+55,Enterprise Client 55,contact@client55.com,+91-9824305904,Pune,Maharashtra,Enterprise,2024-07-08,True,True,0.01,2256725.8,13,180,3
+56,Enterprise Client 56,contact@client56.com,+91-9843446826,Bengaluru,Karnataka,SMB,2024-02-15,True,True,0.01,2824337.01,17,180,8
+57,Enterprise Client 57,contact@client57.com,+91-9892228802,Bengaluru,Karnataka,SMB,2024-12-17,True,True,0.01,5048542.93,17,172,5
+58,Enterprise Client 58,contact@client58.com,+91-9870407340,Delhi,Delhi,SMB,2024-05-25,True,True,0.01,4114530.39,15,142,7
+59,Enterprise Client 59,contact@client59.com,+91-9820399639,Bengaluru,Karnataka,SMB,2024-12-10,True,False,0.01,6110467.72,25,72,7
+60,Enterprise Client 60,contact@client60.com,+91-9841039390,Bengaluru,Karnataka,Mid-Market,2024-07-23,True,False,0.01,1262599.46,18,83,2
+61,Enterprise Client 61,contact@client61.com,+91-9866390708,Bengaluru,Karnataka,SMB,2024-07-25,True,False,0.01,2126597.79,14,18,8
+62,Enterprise Client 62,contact@client62.com,+91-9810791358,Pune,Maharashtra,SMB,2024-06-10,True,False,0.01,4848064.67,25,7,7
+63,Enterprise Client 63,contact@client63.com,+91-9875529051,Delhi,Delhi,SMB,2024-04-09,True,False,0.01,4263820.51,18,109,8
+64,Enterprise Client 64,contact@client64.com,+91-9832151928,Delhi,Delhi,Mid-Market,2024-08-05,True,False,0.01,2389402.46,11,101,6
+65,Enterprise Client 65,contact@client65.com,+91-9871968116,Pune,Maharashtra,Mid-Market,2024-03-02,True,False,0.01,3630861.92,19,102,0
+66,Enterprise Client 66,contact@client66.com,+91-9847346970,Mumbai,Maharashtra,Mid-Market,2024-07-09,True,False,0.01,1975671.77,15,56,6
+67,Enterprise Client 67,contact@client67.com,+91-9897477029,Hyderabad,Telangana,Mid-Market,2024-01-25,True,True,0.7815,599953.91,2,140,5
+68,Enterprise Client 68,contact@client68.com,+91-9826941092,Hyderabad,Telangana,SMB,2024-08-22,True,True,0.7469,205333.91,1,53,3
+69,Enterprise Client 69,contact@client69.com,+91-9825372341,Hyderabad,Telangana,Mid-Market,2024-03-10,True,False,0.01,3372993.64,15,57,5
+70,Enterprise Client 70,contact@client70.com,+91-9863238057,Hyderabad,Telangana,Mid-Market,2024-12-07,True,False,0.01,4167399.61,19,81,6
+71,Enterprise Client 71,contact@client71.com,+91-9826247735,Hyderabad,Telangana,Mid-Market,2024-10-26,True,True,0.6771,603802.61,8,162,4
+72,Enterprise Client 72,contact@client72.com,+91-9896911784,Hyderabad,Telangana,Mid-Market,2024-06-01,True,False,0.01,3138139.82,22,111,8
+73,Enterprise Client 73,contact@client73.com,+91-9880027662,Delhi,Delhi,SMB,2024-11-09,True,False,0.01,4062756.49,14,29,7
+74,Enterprise Client 74,contact@client74.com,+91-9889520597,Pune,Maharashtra,SMB,2024-05-11,True,True,0.01,4271859.4,25,139,6
+75,Enterprise Client 75,contact@client75.com,+91-9899682738,Bengaluru,Karnataka,SMB,2024-07-11,True,False,0.01,2433670.16,9,24,3
+76,Enterprise Client 76,contact@client76.com,+91-9844675473,Hyderabad,Telangana,Mid-Market,2024-06-09,True,False,0.042,1031324.9,6,85,5
+77,Enterprise Client 77,contact@client77.com,+91-9875575808,Pune,Maharashtra,SMB,2024-09-25,True,False,0.0122,945680.01,18,72,3
+78,Enterprise Client 78,contact@client78.com,+91-9822489409,Bengaluru,Karnataka,Mid-Market,2024-05-08,True,True,0.01,3972222.68,23,167,0
+79,Enterprise Client 79,contact@client79.com,+91-9883871890,Delhi,Delhi,Mid-Market,2024-06-12,True,False,0.01,4298555.72,22,80,7
+80,Enterprise Client 80,contact@client80.com,+91-9852352128,Chennai,Tamil Nadu,Mid-Market,2024-02-24,True,False,0.025,968710.59,9,80,3
+81,Enterprise Client 81,contact@client81.com,+91-9880415568,Pune,Maharashtra,SMB,2024-10-10,True,True,0.8894,587311.46,6,178,7
+82,Enterprise Client 82,contact@client82.com,+91-9811898961,Hyderabad,Telangana,SMB,2024-12-18,True,False,0.0341,1121762.14,8,77,4
+83,Enterprise Client 83,contact@client83.com,+91-9823769080,Bengaluru,Karnataka,Mid-Market,2024-01-19,True,False,0.01,2214614.9,18,15,2
+84,Enterprise Client 84,contact@client84.com,+91-9843887075,Mumbai,Maharashtra,Mid-Market,2024-08-04,True,False,0.01,1057000.09,11,114,0
+85,Enterprise Client 85,contact@client85.com,+91-9850780112,Hyderabad,Telangana,Mid-Market,2024-02-08,True,False,0.01,3939867.11,19,20,0
+86,Enterprise Client 86,contact@client86.com,+91-9880138498,Hyderabad,Telangana,Mid-Market,2024-07-15,True,False,0.01,3980634.23,20,108,3
+87,Enterprise Client 87,contact@client87.com,+91-9837888820,Delhi,Delhi,Mid-Market,2024-11-07,True,True,0.01,1768830.86,14,152,0
+88,Enterprise Client 88,contact@client88.com,+91-9831009452,Mumbai,Maharashtra,Mid-Market,2024-01-14,True,False,0.0153,747627.1,8,42,1
+89,Enterprise Client 89,contact@client89.com,+91-9870939053,Delhi,Delhi,Mid-Market,2024-02-22,True,True,0.3242,581599.64,10,122,4
+90,Enterprise Client 90,contact@client90.com,+91-9867061186,Bengaluru,Karnataka,SMB,2024-02-18,True,True,0.01,4090619.45,19,162,3
+91,Enterprise Client 91,contact@client91.com,+91-9886397676,Bengaluru,Karnataka,Mid-Market,2024-05-15,True,False,0.4492,339262.3,5,70,2
+92,Enterprise Client 92,contact@client92.com,+91-9877172238,Hyderabad,Telangana,Mid-Market,2024-09-16,True,False,0.01,3464423.99,23,79,4
+93,Enterprise Client 93,contact@client93.com,+91-9887201917,Delhi,Delhi,Enterprise,2024-10-01,True,False,0.01,3270868.73,14,12,4
+94,Enterprise Client 94,contact@client94.com,+91-9873149551,Chennai,Tamil Nadu,SMB,2024-09-21,True,True,0.7348,481554.5,2,149,2
+95,Enterprise Client 95,contact@client95.com,+91-9864807553,Delhi,Delhi,SMB,2024-06-11,True,False,0.01,3020453.69,19,48,7
+96,Enterprise Client 96,contact@client96.com,+91-9848683937,Chennai,Tamil Nadu,Enterprise,2024-11-13,True,False,0.01,1682024.0,11,43,7
+97,Enterprise Client 97,contact@client97.com,+91-9879067939,Pune,Maharashtra,Enterprise,2024-01-22,True,False,0.01,1244096.84,11,24,1
+98,Enterprise Client 98,contact@client98.com,+91-9893940940,Pune,Maharashtra,Mid-Market,2024-08-25,True,False,0.01,1257268.94,7,15,7
+99,Enterprise Client 99,contact@client99.com,+91-9813874790,Hyderabad,Telangana,Enterprise,2024-11-20,True,True,0.1024,1409590.95,5,142,7
+100,Enterprise Client 100,contact@client100.com,+91-9822510327,Bengaluru,Karnataka,SMB,2024-04-27,True,False,0.0163,961535.09,18,81,6
+101,Enterprise Client 101,contact@client101.com,+91-9846698468,Hyderabad,Telangana,Mid-Market,2024-07-27,True,False,0.01,5418751.66,21,32,7
+102,Enterprise Client 102,contact@client102.com,+91-9835583290,Delhi,Delhi,SMB,2024-10-17,True,False,0.01,2817244.04,15,64,6
+103,Enterprise Client 103,contact@client103.com,+91-9845859307,Chennai,Tamil Nadu,SMB,2024-01-10,True,False,0.01,2188519.05,9,19,6
+104,Enterprise Client 104,contact@client104.com,+91-9829944139,Chennai,Tamil Nadu,Mid-Market,2024-08-18,True,True,0.01,5694786.08,19,152,7
+105,Enterprise Client 105,contact@client105.com,+91-9842051937,Delhi,Delhi,Mid-Market,2024-10-13,True,True,0.01,4646437.89,25,143,7
+106,Enterprise Client 106,contact@client106.com,+91-9861167978,Bengaluru,Karnataka,SMB,2024-07-22,True,True,0.9349,259088.16,2,107,7
+107,Enterprise Client 107,contact@client107.com,+91-9869096899,Chennai,Tamil Nadu,SMB,2024-02-17,True,True,0.977,163123.13,2,128,5
+108,Enterprise Client 108,contact@client108.com,+91-9820043277,Delhi,Delhi,Enterprise,2024-08-26,True,False,0.01,3748265.4,14,38,2
+109,Enterprise Client 109,contact@client109.com,+91-9861003997,Mumbai,Maharashtra,Mid-Market,2024-06-21,True,True,0.01,2761969.12,13,179,5
+110,Enterprise Client 110,contact@client110.com,+91-9841510328,Chennai,Tamil Nadu,SMB,2024-11-22,True,True,0.01,1061545.95,18,126,1
+111,Enterprise Client 111,contact@client111.com,+91-9813885234,Mumbai,Maharashtra,SMB,2024-01-11,True,False,0.01,4124182.05,14,25,1
+112,Enterprise Client 112,contact@client112.com,+91-9865304649,Hyderabad,Telangana,Mid-Market,2024-10-22,True,False,0.0394,1209494.28,14,97,8
+113,Enterprise Client 113,contact@client113.com,+91-9841163805,Bengaluru,Karnataka,Enterprise,2024-08-21,True,False,0.01,5354197.99,20,22,3
+114,Enterprise Client 114,contact@client114.com,+91-9848605268,Mumbai,Maharashtra,Mid-Market,2024-11-18,True,True,0.98,274727.13,1,172,7
+115,Enterprise Client 115,contact@client115.com,+91-9850550084,Bengaluru,Karnataka,Enterprise,2024-04-13,True,False,0.01,2370982.68,19,90,6
+116,Enterprise Client 116,contact@client116.com,+91-9849625201,Delhi,Delhi,Enterprise,2024-01-27,True,False,0.01,2655056.0,19,99,4
+117,Enterprise Client 117,contact@client117.com,+91-9848412328,Chennai,Tamil Nadu,Mid-Market,2024-04-20,True,False,0.01,5059070.14,19,4,0
+118,Enterprise Client 118,contact@client118.com,+91-9894322033,Mumbai,Maharashtra,Enterprise,2024-02-21,True,False,0.01,2253134.0,20,50,2
+119,Enterprise Client 119,contact@client119.com,+91-9865767881,Chennai,Tamil Nadu,Enterprise,2024-03-07,True,True,0.7337,389786.9,2,114,2
+120,Enterprise Client 120,contact@client120.com,+91-9832084778,Bengaluru,Karnataka,SMB,2024-05-27,True,False,0.01,2982627.74,17,95,4
+121,Enterprise Client 121,contact@client121.com,+91-9840281491,Delhi,Delhi,SMB,2024-11-24,True,False,0.01,6422381.76,24,77,1
+122,Enterprise Client 122,contact@client122.com,+91-9811868130,Chennai,Tamil Nadu,SMB,2024-05-18,True,True,0.2417,870908.63,12,144,6
+123,Enterprise Client 123,contact@client123.com,+91-9824541967,Hyderabad,Telangana,Mid-Market,2024-11-08,True,True,0.01,5234044.78,24,174,6
+124,Enterprise Client 124,contact@client124.com,+91-9896926431,Delhi,Delhi,Enterprise,2024-02-21,True,True,0.01,3066953.75,11,145,3
+125,Enterprise Client 125,contact@client125.com,+91-9876118957,Delhi,Delhi,SMB,2024-02-04,True,False,0.01,3193553.24,21,79,2
+126,Enterprise Client 126,contact@client126.com,+91-9866254240,Bengaluru,Karnataka,SMB,2024-10-24,True,False,0.01,2124342.21,13,36,8
+127,Enterprise Client 127,contact@client127.com,+91-9847546086,Chennai,Tamil Nadu,Enterprise,2024-01-23,True,False,0.01,1569863.58,21,108,7
+128,Enterprise Client 128,contact@client128.com,+91-9859302863,Mumbai,Maharashtra,Enterprise,2024-09-21,True,False,0.01,2110900.39,8,115,1
+129,Enterprise Client 129,contact@client129.com,+91-9895831286,Mumbai,Maharashtra,Enterprise,2024-10-01,True,False,0.01,2044362.03,7,72,7
+130,Enterprise Client 130,contact@client130.com,+91-9819208698,Hyderabad,Telangana,SMB,2024-09-07,True,False,0.0117,1233722.62,5,64,3
+131,Enterprise Client 131,contact@client131.com,+91-9827447248,Pune,Maharashtra,Enterprise,2024-09-09,True,False,0.01,2679513.59,11,61,0
+132,Enterprise Client 132,contact@client132.com,+91-9889034501,Bengaluru,Karnataka,Enterprise,2024-06-01,True,False,0.5624,268575.41,5,8,3
+133,Enterprise Client 133,contact@client133.com,+91-9858592048,Bengaluru,Karnataka,Mid-Market,2024-09-19,True,False,0.01,3725763.34,24,34,1
+134,Enterprise Client 134,contact@client134.com,+91-9850484137,Hyderabad,Telangana,Mid-Market,2024-08-21,True,False,0.01,1216825.18,20,58,8
+135,Enterprise Client 135,contact@client135.com,+91-9819863756,Hyderabad,Telangana,Enterprise,2024-02-11,True,True,0.01,2035389.26,13,124,1
+136,Enterprise Client 136,contact@client136.com,+91-9853645651,Pune,Maharashtra,Enterprise,2024-07-20,True,False,0.01,1854714.36,9,34,8
+137,Enterprise Client 137,contact@client137.com,+91-9883998961,Pune,Maharashtra,Mid-Market,2024-12-28,True,True,0.01,3150996.63,20,131,1
+138,Enterprise Client 138,contact@client138.com,+91-9863516659,Bengaluru,Karnataka,Mid-Market,2024-07-24,True,False,0.01,1886260.67,14,60,7
+139,Enterprise Client 139,contact@client139.com,+91-9822243983,Hyderabad,Telangana,Mid-Market,2024-02-03,True,False,0.01,2501893.88,22,82,2
+140,Enterprise Client 140,contact@client140.com,+91-9885387867,Delhi,Delhi,Enterprise,2024-06-22,True,False,0.2395,945463.42,5,97,8
+141,Enterprise Client 141,contact@client141.com,+91-9857197152,Hyderabad,Telangana,Mid-Market,2024-02-19,True,True,0.01,3893355.35,25,172,0
+142,Enterprise Client 142,contact@client142.com,+91-9856991504,Pune,Maharashtra,Enterprise,2024-09-12,True,True,0.01,1696979.48,16,170,1
+143,Enterprise Client 143,contact@client143.com,+91-9892352411,Hyderabad,Telangana,SMB,2024-11-21,True,True,0.01,2014442.74,8,148,8
+144,Enterprise Client 144,contact@client144.com,+91-9846677730,Pune,Maharashtra,Enterprise,2024-12-25,True,True,0.01,2687824.42,23,170,2
+145,Enterprise Client 145,contact@client145.com,+91-9829042093,Mumbai,Maharashtra,SMB,2024-12-21,True,True,0.821,95351.39,1,91,2
+146,Enterprise Client 146,contact@client146.com,+91-9855754284,Hyderabad,Telangana,Enterprise,2024-03-12,True,True,0.2562,1008340.21,7,137,7
+147,Enterprise Client 147,contact@client147.com,+91-9816679008,Mumbai,Maharashtra,SMB,2024-11-03,True,True,0.01,1424785.2,20,147,0
+148,Enterprise Client 148,contact@client148.com,+91-9846663833,Mumbai,Maharashtra,Mid-Market,2024-04-25,True,False,0.01,3228304.03,16,110,6
+149,Enterprise Client 149,contact@client149.com,+91-9839597483,Pune,Maharashtra,Enterprise,2024-07-20,True,True,0.7917,483246.47,4,112,7
+150,Enterprise Client 150,contact@client150.com,+91-9848848936,Hyderabad,Telangana,Enterprise,2024-06-04,True,False,0.01,1692861.67,7,79,4
+151,Enterprise Client 151,contact@client151.com,+91-9899663907,Hyderabad,Telangana,Mid-Market,2024-06-03,True,True,0.8229,493778.55,6,112,8
+152,Enterprise Client 152,contact@client152.com,+91-9852018286,Delhi,Delhi,SMB,2024-10-14,True,False,0.01,765595.38,14,12,1
+153,Enterprise Client 153,contact@client153.com,+91-9892963368,Pune,Maharashtra,Mid-Market,2024-08-27,True,True,0.01,1713303.22,14,165,6
+154,Enterprise Client 154,contact@client154.com,+91-9868475513,Chennai,Tamil Nadu,SMB,2024-10-13,True,False,0.01,3655695.26,14,24,3
+155,Enterprise Client 155,contact@client155.com,+91-9894989976,Pune,Maharashtra,Enterprise,2024-02-17,True,False,0.01,3237079.69,24,81,5
+156,Enterprise Client 156,contact@client156.com,+91-9841711468,Pune,Maharashtra,Enterprise,2024-02-05,True,False,0.01,2782137.32,12,91,2
+157,Enterprise Client 157,contact@client157.com,+91-9876319264,Mumbai,Maharashtra,Enterprise,2024-08-25,True,True,0.0485,1200269.12,5,156,1
+158,Enterprise Client 158,contact@client158.com,+91-9894183695,Pune,Maharashtra,SMB,2024-06-05,True,False,0.01,6182848.42,22,116,5
+159,Enterprise Client 159,contact@client159.com,+91-9819957701,Delhi,Delhi,Enterprise,2024-05-15,True,False,0.01,2639807.28,21,115,4
+160,Enterprise Client 160,contact@client160.com,+91-9892545028,Delhi,Delhi,Enterprise,2024-10-17,True,False,0.0526,691827.5,10,96,1
+161,Enterprise Client 161,contact@client161.com,+91-9835265073,Delhi,Delhi,Mid-Market,2024-06-20,True,True,0.01,6575260.59,24,143,7
+162,Enterprise Client 162,contact@client162.com,+91-9821318464,Delhi,Delhi,Mid-Market,2024-09-21,True,False,0.01,1138132.04,15,17,5
+163,Enterprise Client 163,contact@client163.com,+91-9861998170,Bengaluru,Karnataka,Enterprise,2024-07-25,True,False,0.01,2715257.07,15,114,2
+164,Enterprise Client 164,contact@client164.com,+91-9854250344,Mumbai,Maharashtra,Mid-Market,2024-02-18,True,False,0.01,4448353.12,21,15,1
+165,Enterprise Client 165,contact@client165.com,+91-9828982195,Chennai,Tamil Nadu,Mid-Market,2024-06-10,True,False,0.01,6309397.56,24,66,2
+166,Enterprise Client 166,contact@client166.com,+91-9851551377,Chennai,Tamil Nadu,Mid-Market,2024-09-13,True,False,0.0536,993801.54,5,102,1
+167,Enterprise Client 167,contact@client167.com,+91-9878248169,Chennai,Tamil Nadu,SMB,2024-06-01,True,False,0.01,4965569.8,22,34,8
+168,Enterprise Client 168,contact@client168.com,+91-9835770506,Mumbai,Maharashtra,Mid-Market,2024-04-05,True,False,0.01,3156087.74,11,56,7
+169,Enterprise Client 169,contact@client169.com,+91-9892950779,Bengaluru,Karnataka,Enterprise,2024-03-20,True,False,0.01,4126217.56,17,27,8
+170,Enterprise Client 170,contact@client170.com,+91-9868743530,Delhi,Delhi,Enterprise,2024-01-14,True,False,0.01,5583812.43,23,48,2
+171,Enterprise Client 171,contact@client171.com,+91-9872950208,Mumbai,Maharashtra,Mid-Market,2024-04-12,True,False,0.01,3039732.83,15,62,7
+172,Enterprise Client 172,contact@client172.com,+91-9877498993,Chennai,Tamil Nadu,SMB,2024-09-14,True,False,0.01,3635394.57,15,114,6
+173,Enterprise Client 173,contact@client173.com,+91-9884429198,Bengaluru,Karnataka,SMB,2024-02-23,True,True,0.01,1341252.4,5,156,0
+174,Enterprise Client 174,contact@client174.com,+91-9870306604,Pune,Maharashtra,SMB,2024-09-05,True,False,0.1403,722337.62,3,74,4
+175,Enterprise Client 175,contact@client175.com,+91-9860192261,Delhi,Delhi,Enterprise,2024-04-13,True,False,0.01,4067361.65,15,58,0
+176,Enterprise Client 176,contact@client176.com,+91-9829602406,Hyderabad,Telangana,Mid-Market,2024-03-02,True,False,0.01,3109771.24,11,9,5
+177,Enterprise Client 177,contact@client177.com,+91-9820633503,Mumbai,Maharashtra,SMB,2024-01-09,True,True,0.01,5928885.29,23,122,7
+178,Enterprise Client 178,contact@client178.com,+91-9824923247,Bengaluru,Karnataka,SMB,2024-05-08,True,True,0.01,4853280.59,24,142,6
+179,Enterprise Client 179,contact@client179.com,+91-9877085942,Mumbai,Maharashtra,Enterprise,2024-10-18,True,False,0.01,2936331.06,14,63,7
+180,Enterprise Client 180,contact@client180.com,+91-9867611469,Hyderabad,Telangana,Mid-Market,2024-01-20,True,True,0.01,1837088.66,8,149,4
+181,Enterprise Client 181,contact@client181.com,+91-9880606503,Mumbai,Maharashtra,Enterprise,2024-09-17,True,False,0.01,1296556.95,6,108,1
+182,Enterprise Client 182,contact@client182.com,+91-9860103798,Pune,Maharashtra,Mid-Market,2024-05-24,True,False,0.0389,974137.7,16,101,6
+183,Enterprise Client 183,contact@client183.com,+91-9854629892,Hyderabad,Telangana,Mid-Market,2024-03-02,True,False,0.01,1323377.77,12,19,1
+184,Enterprise Client 184,contact@client184.com,+91-9874227366,Mumbai,Maharashtra,Mid-Market,2024-11-06,True,True,0.0292,1545575.49,6,166,7
+185,Enterprise Client 185,contact@client185.com,+91-9852358553,Bengaluru,Karnataka,Enterprise,2024-05-17,True,True,0.7425,246721.29,2,119,0
+186,Enterprise Client 186,contact@client186.com,+91-9848401154,Delhi,Delhi,SMB,2024-06-28,True,True,0.01,1813255.06,16,141,3
+187,Enterprise Client 187,contact@client187.com,+91-9869020451,Hyderabad,Telangana,SMB,2024-07-11,True,False,0.1297,730068.77,9,86,5
+188,Enterprise Client 188,contact@client188.com,+91-9845798645,Bengaluru,Karnataka,Mid-Market,2024-02-24,True,True,0.01,3372931.4,12,129,8
+189,Enterprise Client 189,contact@client189.com,+91-9849680122,Delhi,Delhi,Enterprise,2024-05-15,True,True,0.2082,1118211.6,6,156,5
+190,Enterprise Client 190,contact@client190.com,+91-9815684813,Pune,Maharashtra,SMB,2024-12-28,True,False,0.01,3702473.19,23,44,7
+191,Enterprise Client 191,contact@client191.com,+91-9858762794,Mumbai,Maharashtra,Mid-Market,2024-09-26,True,False,0.01,1888805.95,9,113,0
+192,Enterprise Client 192,contact@client192.com,+91-9814670638,Chennai,Tamil Nadu,Mid-Market,2024-03-03,True,False,0.0119,1310836.64,5,9,7
+193,Enterprise Client 193,contact@client193.com,+91-9859790013,Bengaluru,Karnataka,SMB,2024-06-15,True,False,0.01,1748563.21,12,95,0
+194,Enterprise Client 194,contact@client194.com,+91-9843502308,Hyderabad,Telangana,Mid-Market,2024-02-01,True,True,0.01,1794102.14,12,137,4
+195,Enterprise Client 195,contact@client195.com,+91-9869897763,Chennai,Tamil Nadu,Enterprise,2024-04-20,True,True,0.01,3619013.14,13,134,1
+196,Enterprise Client 196,contact@client196.com,+91-9870672142,Mumbai,Maharashtra,Mid-Market,2024-03-23,True,True,0.3378,564615.49,7,127,1
+197,Enterprise Client 197,contact@client197.com,+91-9850259503,Delhi,Delhi,SMB,2024-03-23,True,True,0.01,2386559.42,11,176,1
+198,Enterprise Client 198,contact@client198.com,+91-9840097200,Chennai,Tamil Nadu,SMB,2024-02-07,True,True,0.0867,1490544.58,6,165,8
+199,Enterprise Client 199,contact@client199.com,+91-9827417599,Bengaluru,Karnataka,Enterprise,2024-10-03,True,True,0.9122,140224.13,1,128,5
+200,Enterprise Client 200,contact@client200.com,+91-9887161840,Hyderabad,Telangana,Mid-Market,2024-02-05,True,True,0.01,2595879.26,17,124,6

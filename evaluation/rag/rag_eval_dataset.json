@@ -1,0 +1,26 @@
+[
+  {
+    "question": "What is the annual leave entitlement for full-time employees?",
+    "expected_source": "Global Enterprise HR",
+    "expected_doc_id": "DOC-HR-2026-001",
+    "expected_facts": ["24 days", "paid annual leave", "medical leave"]
+  },
+  {
+    "question": "What is the domestic hotel accommodation reimbursement limit in Hyderabad?",
+    "expected_source": "Enterprise Travel & Reimbursement Policy",
+    "expected_doc_id": "DOC-FIN-2026-004",
+    "expected_facts": ["₹6,500", "Tier-1 cities"]
+  },
+  {
+    "question": "Why did Hyderabad branch sales decline in August and September 2026?",
+    "expected_source": "Q3 Financial & Operational Review",
+    "expected_doc_id": "DOC-FIN-2026-Q3",
+    "expected_facts": ["14.8%", "IoT Gateway", "semiconductor", "HITEC City"]
+  },
+  {
+    "question": "What is the minimum buffer stock threshold for IoT Gateways in Hyderabad?",
+    "expected_source": "Hyderabad Operations SOP",
+    "expected_doc_id": "DOC-OPS-HYD-002",
+    "expected_facts": ["25 units", "15 units"]
+  }
+]

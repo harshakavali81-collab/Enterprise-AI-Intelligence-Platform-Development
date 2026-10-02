@@ -1,0 +1,17 @@
+# Standard Operating Procedure (SOP): Hyderabad Operations Center
+Department: Operations & Delivery
+Category: SOP
+Access Level: ANALYST
+Effective Date: February 10, 2026
+Document ID: DOC-OPS-HYD-002
+
+## 1. Facility & Regional Scope
+The Hyderabad center in HITEC City acts as the primary deployment hub for Telangana, Andhra Pradesh, and Karnataka southern corridors. Key functional units include Cloud Support, Hardware Assembly, and Client Delivery.
+
+## 2. Escalation & Client Incident SLA
+- Priority 1 (System Down): Immediate response within 15 minutes, resolution within 4 hours. Automated alert dispatched to Incident Commander.
+- Priority 2 (Severe Degradation): Response within 1 hour, resolution within 8 hours.
+- Priority 3 (Standard Request): Response within 4 hours, resolution within 24 hours.
+
+## 3. Inventory Reorder & Buffer Guidelines
+Hardware buffer stocks for IoT Gateways and Enterprise Edge Servers must be maintained at a minimum threshold of 25 units. When inventory drops below 15 units, the automated inventory agent triggers an expedited replenishment order requiring Operations Manager sign-off.

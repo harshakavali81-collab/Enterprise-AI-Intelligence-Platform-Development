@@ -1,0 +1,18 @@
+# Global Enterprise HR & Leave Policy (Version 2026.1)
+Department: Human Resources
+Category: Policy
+Access Level: EMPLOYEE
+Effective Date: January 1, 2026
+Document ID: DOC-HR-2026-001
+
+## 1. Annual Leave Entitlement
+All full-time employees are entitled to 24 days of paid annual leave per calendar year, accrued at the rate of 2 days per completed month of service. A maximum of 10 unused annual leave days can be carried forward into the subsequent calendar year. Any additional unused leave will lapse on December 31st.
+
+## 2. Sick & Medical Leave
+Employees receive 12 days of paid medical leave per year. Medical leaves extending beyond 3 consecutive working days require a formal medical certificate issued by a registered medical practitioner. In case of hospitalization or chronic illness, extended medical leave up to 45 calendar days may be approved by the Department Head and Chief People Officer.
+
+## 3. Parental & Maternity Leave
+Female employees are entitled to 26 weeks of fully paid maternity leave in accordance with statutory requirements. Male employees are entitled to 4 weeks of fully paid paternity leave to be utilized within 6 months of childbirth or legal adoption.
+
+## 4. Work from Home (Remote Work) Policy
+Employees are eligible for a hybrid working model permitting up to 2 remote work days per week, subject to departmental approval and operational requirements. Core collaboration hours are 10:00 AM to 4:00 PM IST.

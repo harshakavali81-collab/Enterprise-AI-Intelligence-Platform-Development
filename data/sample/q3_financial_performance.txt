@@ -1,0 +1,18 @@
+# Q3 Financial & Operational Performance Review
+Department: Executive & Finance
+Category: Financial
+Access Level: MANAGER
+Effective Date: October 1, 2026
+Document ID: DOC-FIN-2026-Q3
+
+## Executive Summary
+In Q3 2026, the company generated total gross revenue of ₹48.5 Crore, reflecting a 12.4% year-over-year expansion. However, regional divergence was observed in southern hubs. While Bengaluru demonstrated a robust 18.2% surge driven by the Cloud Infrastructure Suite, the Hyderabad regional branch experienced a notable sales decline of 14.8% month-over-month in August and September.
+
+## Regional Analysis: Hyderabad Branch Performance
+Investigation reveals three primary drivers behind the Hyderabad revenue drop:
+1. Supply chain and fulfillment bottlenecks in hardware-integrated IoT Gateway deployments.
+2. Aggressive competitive discounting by regional competitors in the mid-market cyber security segment.
+3. Extended procurement review cycles among two major semiconductor enterprise clients located in HITEC City, delaying expected contract closures of ₹3.2 Crore into Q4.
+
+## Corrective Actions & Strategic Forecast
+The operations team has resolved IoT gateway fulfillment delays as of September 28. Revenue in Hyderabad is projected to rebound by 16% in October 2026, aided by backlog fulfillment and deferred enterprise contract signings.

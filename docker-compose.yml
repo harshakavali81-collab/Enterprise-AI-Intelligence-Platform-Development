@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # PostgreSQL with pgvector extension
+  # ----------------------------------------------------
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: enterprise_ai_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres_password_here}
+      POSTGRES_DB: ${POSTGRES_DB:-enterprise_ai_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./sql/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------
+  # Redis Cache & Message Broker
+  # ----------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: enterprise_ai_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  # ----------------------------------------------------
+  # FastAPI AI Backend Orchestrator
+  # ----------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: enterprise_ai_backend
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_password_here}@postgres:5432/${POSTGRES_DB:-enterprise_ai_db}
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=${SECRET_KEY:-default_super_secret_development_key_32chars}
+      - LLM_API_KEY=${LLM_API_KEY}
+      - ENVIRONMENT=production
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+
+  # ----------------------------------------------------
+  # React + TypeScript Frontend
+  # ----------------------------------------------------
+  frontend:
+    image: node:20-alpine
+    container_name: enterprise_ai_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm start"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+  # ----------------------------------------------------
+  # MLflow Tracking Server (MLOps / LLMOps)
+  # ----------------------------------------------------
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.11.0
+    container_name: enterprise_ai_mlflow
+    restart: always
+    ports:
+      - "5000:5000"
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root ./mlruns
+      --host 0.0.0.0
+      --port 5000
+    volumes:
+      - mlflow_data:/app
+
+volumes:
+  pgdata:
+  redisdata:
+  mlflow_data:
