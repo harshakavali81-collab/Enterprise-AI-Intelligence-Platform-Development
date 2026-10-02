@@ -29,7 +29,7 @@ Prerequisites: Python 3.11 or newer, Node.js 20, and Docker Desktop with Docker 
    docker compose up --build
    ```
 
-3. Open the frontend at `http://localhost:3000`, API documentation at `http://localhost:8000/docs`, and health status at `http://localhost:8000/health`.
+4. Open the frontend at `http://localhost:3000`, API documentation at `http://localhost:8000/docs`, and health status at `http://localhost:8000/health`.
 
 To run the backend without Docker, create and activate a virtual environment, install `requirements.txt`, start PostgreSQL with pgvector and Redis, then run:
 
