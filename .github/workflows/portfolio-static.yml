@@ -1,0 +1,22 @@
+name: Portfolio static checks
+on:
+  push:
+    paths:
+      - 'portfolio/**'
+      - '.github/workflows/portfolio-static.yml'
+  pull_request:
+    paths:
+      - 'portfolio/**'
+      - '.github/workflows/portfolio-static.yml'
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax
+        run: node --check portfolio/script.js
+      - name: Static portfolio smoke tests
+        run: node --test portfolio/tests/*.test.mjs
