@@ -1,6 +1,16 @@
 # Kavali Harshavardhan — Vercel-ready project portfolio
 A responsive, accessible, framework-free HTML/CSS/JavaScript portfolio hosted inside this repository under `portfolio/`. Includes a filterable and searchable catalog of **all 20 repositories**, grounded project summaries, skill clusters, case-study detail panels, GitHub/LinkedIn/contact links, and links to verified demos. **The portfolio itself is a static website, not a live AI inference service.**
 
+## Fast deploy to your Vercel account
+
+[**Open the preconfigured Vercel deploy flow**](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fharshakavali81-collab%2FEnterprise-AI-Intelligence-Platform-Development&project-name=harshavardhan-ai-portfolio&root-directory=portfolio)
+
+The Vercel link pre-fills the GitHub source repository, requested project name, and **root-directory=portfolio**. Sign in to the correct Vercel workspace, confirm the GitHub connection/permissions and deployment settings, then press **Deploy**. The deploy-button flow may offer to create a copy of the repository. If you want to import this *existing* GitHub repository without cloning, use **Add New → Project → Import** in your Vercel dashboard instead, and specify Root Directory `portfolio`.
+
+Use **Other** for Framework Preset, with no build command. The directory intentionally has no `public` folder, so Vercel serves the static files from `.` by default. Production URLs are assigned by Vercel after a successful deployment. Avoid guessing a link from the proposed project name.
+
+After you connect the repository, Vercel automatically creates a deployment on new commits to `main` by default. The project is a static portfolio; Python ML/Streamlit backends and databases are not deployed with it.
+
 ## Deploy to Vercel
 1. Create your Vercel account at https://vercel.com/signup (choose **Continue with GitHub**).
 2. On Vercel choose **Add New → Project**, grant GitHub repository access, and import `harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development`.
