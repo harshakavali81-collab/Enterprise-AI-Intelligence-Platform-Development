@@ -16,15 +16,17 @@ test('portfolio is a self-contained static website',()=>{
  assert.match(html,/id="projectGrid"/);
  assert.match(html,/id="projectDialog"/);
  assert.ok(css.length>5000);
+ assert.ok(existsSync(resolve(root,'mobilitypulse.html')));
  assert.ok(existsSync(resolve(root,'favicon.svg')));
  assert.ok(existsSync(resolve(root,'vercel.json')));
 });
 
-test('catalog contains the 20 unique verified GitHub repositories',()=>{
+test('catalog contains the 21 unique GitHub repositories',()=>{
  const names=[...script.matchAll(/\{repo:"([^"]+)"/g)].map(x=>x[1]);
- assert.equal(names.length,20);
- assert.equal(new Set(names).size,20);
+ assert.equal(names.length,21);
+ assert.equal(new Set(names).size,21);
  assert.ok(names.includes('CivicShield-AI'));
+ assert.ok(names.includes('MobilityPulse-AI-Public-Transport-Reliability-Accessibility-Intelligence'));
  assert.ok(names.includes('AstraSentinel-AI'));
  assert.ok(names.includes('Multilingual-Project'));
  assert.ok(names.includes('TransactionShield-a-Real-Time-Fraud-Detection-and-Risk-Scoring-Platform.'));

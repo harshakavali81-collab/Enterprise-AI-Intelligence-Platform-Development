@@ -1,5 +1,5 @@
 # Kavali Harshavardhan — Vercel-ready project portfolio
-A responsive, accessible, framework-free HTML/CSS/JavaScript portfolio hosted inside this repository under `portfolio/`. Includes a filterable and searchable catalog of **all 20 repositories**, grounded project summaries, skill clusters, case-study detail panels, GitHub/LinkedIn/contact links, and links to verified demos. **The portfolio itself is a static website, not a live AI inference service.**
+A responsive, accessible, framework-free HTML/CSS/JavaScript portfolio hosted inside this repository under `portfolio/`. Includes a filterable and searchable catalog of **all 21 repositories**, grounded project summaries, skill clusters, case-study detail panels, GitHub/LinkedIn/contact links, and links to verified demos. **The portfolio itself is a static website, not a live AI inference service.**
 
 ## Fast deploy to your Vercel account
 
@@ -29,7 +29,7 @@ Open `portfolio/index.html` in a browser, or run `python -m http.server 4173 --d
 - Other AI/ML repositories link to verified GitHub source; their Python backends, models, databases, external APIs or worker processes are not silently claimed to run on Vercel.
 
 ## Maintenance
-- Edit `script.js` to adjust the 20-project list, categories, details, links and demo paths.
+- Edit `script.js` to adjust the 21-project list, categories, details, links and demo paths.
 - Edit `style.css` for styles, or `index.html` for section content.
 - Do not add API secrets to these static files; use Vercel environment variables for future server-side features.
 - The portfolio shows email and public social links intentionally; no phone number is published.
