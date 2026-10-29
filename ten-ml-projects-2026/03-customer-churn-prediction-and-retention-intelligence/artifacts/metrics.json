@@ -1,0 +1,35 @@
+{
+  "dataset": "synthetic",
+  "execution_seconds": 0.29,
+  "features": [
+    "tenure_months",
+    "complaints_90d",
+    "autopay",
+    "monthly_cost"
+  ],
+  "limitation": "Not validated on any real-world dataset. Research/demo use only.",
+  "mode": "churn",
+  "models": {
+    "Logistic Regression": {
+      "brier": 0.2075,
+      "f1": 0.3882,
+      "pr_auc": 0.3663,
+      "precision": 0.275,
+      "recall": 0.66,
+      "roc_auc": 0.7061
+    },
+    "Random Forest": {
+      "brier": 0.1563,
+      "f1": 0.2887,
+      "pr_auc": 0.237,
+      "precision": 0.2979,
+      "recall": 0.28,
+      "roc_auc": 0.6341
+    }
+  },
+  "positive_rate": 0.1546,
+  "records": 1300,
+  "seed": 42,
+  "selected": "Logistic Regression",
+  "split": "stratified holdout"
+}
