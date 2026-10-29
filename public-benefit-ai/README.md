@@ -17,7 +17,7 @@ pytest -q
 python -m scripts.evaluate
 ```
 
-Docker: `docker compose up --build` (binds to localhost).
+Docker: `docker compose up --build` starts both the API at `http://127.0.0.1:8000/docs` and the static frontend at `http://127.0.0.1:5173`. Both host ports bind to localhost only; no public production hosting is performed.
 
 - `GET /health` — operational status.
 - `GET /api/v1/projects` — 10 project labels and methods.

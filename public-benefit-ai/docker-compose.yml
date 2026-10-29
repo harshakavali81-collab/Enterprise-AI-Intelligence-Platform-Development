@@ -1,9 +1,36 @@
 services:
   api:
     build: .
-    ports: ["127.0.0.1:8000:8000"]
+    ports:
+      - "127.0.0.1:8000:8000"
     read_only: true
-    tmpfs: ["/tmp"]
+    tmpfs:
+      - /tmp
     environment:
       DEMO_MODE: "true"
-    security_opt: ["no-new-privileges:true"]
+      DEMO_DB_ENABLED: "false"
+    security_opt:
+      - "no-new-privileges:true"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=4).read()"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+      start_period: 15s
+
+  frontend:
+    image: nginx:stable-alpine
+    ports:
+      - "127.0.0.1:5173:80"
+    volumes:
+      - "./frontend:/usr/share/nginx/html:ro"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/cache/nginx
+      - /var/run
+    security_opt:
+      - "no-new-privileges:true"
+    depends_on:
+      api:
+        condition: service_healthy
