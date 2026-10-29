@@ -35,11 +35,14 @@ TITLES={
 
 MAIN='''"""Independent API for one public-benefit AI demonstration."""
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Any
 from app.engine import process
 
 PROJECT_SLUG = "__SLUG__"
 app=FastAPI(title="__TITLE__",version="0.1.0",description="Synthetic portfolio demonstration, not a live public-safety service")
+app.add_middleware(CORSMiddleware,allow_origins=["http://127.0.0.1:5173","http://localhost:5173"],
+                   allow_methods=["GET","POST"],allow_headers=["Content-Type"])
 
 @app.get("/health")
 def health():
@@ -115,6 +118,18 @@ if __name__=="__main__":
     print(json.dumps(process(PROJECT_SLUG,data),indent=2))
 ''',encoding="utf8")
     (folder/"app"/"main.py").write_text(MAIN.replace("__SLUG__",slug).replace("__TITLE__",name.replace("-"," ")),encoding="utf8")
+    # Copy the interactive browser UI and scope the project list to this repository.
+    ui_folder=folder/"frontend"
+    ui_folder.mkdir()
+    source_ui=(ROOT/"frontend"/"index.html").read_text(encoding="utf8")
+    # The collection frontend embeds a line: const projects=<JSON>;
+    import re
+    single_project=json.dumps([{"slug":slug,"name":name.replace("-"," "),"example":json.loads((folder/"sample_request.json").read_text(encoding="utf8"))}])
+    source_ui=re.sub(r'const projects=\\[.*?\\];',lambda _m:"const projects="+single_project+";",source_ui,count=1)
+    source_ui=source_ui.replace('"http://127.0.0.1:8000/api/v1/"+projects[active].slug+"/analyze"',
+                                '"http://127.0.0.1:8000/api/v1/analyze"')
+    (ui_folder/"index.html").write_text(source_ui,encoding="utf8")
+
     (folder/"tests").mkdir()
     (folder/"tests"/"test_demo.py").write_text(TEST,encoding="utf8")
     (folder/"pytest.ini").write_text("[pytest]\npythonpath = .\ntestpaths = tests\n",encoding="utf8")
@@ -128,11 +143,11 @@ if __name__=="__main__":
     content=content.replace("Path: `projects/"+slug+"`","Path: this standalone repository")
     content=content.replace("`../../app/`","`app/`").replace("`../../tests/`","`tests/`").replace("`../../Dockerfile`","`Dockerfile`")
     content=content.replace("`../../scripts/evaluate.py`","per-project tests in `tests/`")
-    content=content.replace("`../../frontend/index.html`","No live hosted frontend provided")
+    content=content.replace("`../../frontend/index.html`","`frontend/index.html`")
     content=content.replace("([Acceptance criteria](../../docs/ACCEPTANCE.md))","(see below)")
     content=content.replace("[Acceptance criteria](../../docs/ACCEPTANCE.md)","additional validation required before real-world use")
     content=content.replace("[All ten projects](../INDEX.md)","[Project collection](https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development/tree/main/public-benefit-ai/projects)")
-    content += "\n\n## Independent repository entrypoint\n\nThis repository is an independent export, with its own backend, synthetic fixtures, tests, Dockerfile and workflows. Run `python cli.py` or `uvicorn app.main:app`. The API route is `POST /api/v1/analyze`. Shared baseline source modules are copied so the project does not depend on the parent repo. Not production validated.\n"
+    content += "\n\n## Independent repository entrypoint\n\nThis repository is an independent export, with its own backend, interactive frontend, synthetic fixtures, tests, Dockerfile and workflows. Run `python cli.py` or `uvicorn app.main:app`. The API route is `POST /api/v1/analyze`. Shared baseline source modules are copied so the project does not depend on the parent repo. Run `python -m http.server 5173 --directory frontend` in another terminal to open the local interface. Not production validated.\n"
     (folder/"README.md").write_text(content,encoding="utf8")
     (folder/"PROJECT.json").write_text(json.dumps({"title":name.replace("-"," "),"slug":slug,"mode":"synthetic demonstration","operational_status":"not production ready"},indent=2)+"\n",encoding="utf8")
     return folder
