@@ -8,6 +8,12 @@ from .engine import process
 
 app = FastAPI(title="Public Benefit AI — 10 Evidence-First Demonstrations",
               description="Offline synthetic-data prototypes, not production public-safety services", version="0.1.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5173", "http://localhost:5173"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
+)
 # Never enable arbitrary public origins for a real authenticated deployment.
 class Payload(BaseModel):
     model_config = ConfigDict(extra="allow")
