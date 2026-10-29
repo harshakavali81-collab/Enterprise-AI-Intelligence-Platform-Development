@@ -29,6 +29,8 @@ jobs:
         run: python -m pytest -q
       - name: Deterministic synthetic evaluation
         run: python -m scripts.evaluate
+      - name: Audit ten project document and graphic bundles
+        run: python -m scripts.audit_assets
       - name: Verify all standalone export folders can be generated
         run: |
           python scripts/export_standalone.py --replace

@@ -24,6 +24,21 @@ Docker: `docker compose up --build` (binds to localhost).
 - `POST /api/v1/{slug}/analyze` — engine-specific JSON request, eg `{"text":"How to prepare for a flood?"}`.
 - Optional `observations` for two forecasting modules; `events` for road hotspot count; `candidate` and `existing` for private matching.
 
+## Run the interactive local dashboard
+
+```bash
+# In a first terminal
+uvicorn app.main:app --reload
+# In a second terminal
+python -m http.server 5173 --directory frontend
+```
+
+Open `http://127.0.0.1:5173`, select a project and run its synthetic input using the local API. The dashboard does not work from GitHub Pages without a running backend; the portfolio link shows case studies and graphics, not a hosted API.
+
+## Create ten genuinely independent repositories
+
+`python scripts/export_standalone.py --replace` creates ten standalone folders, each with project-specific source/docs/fixtures, a one-project local frontend, Docker configuration, tests and CI. `--publish` additionally requires **GitHub CLI signed into an account authorized to create repos**; it never overwrites an existing repository. For verified procedure see [REPOSITORY_PUBLISHING.md](docs/REPOSITORY_PUBLISHING.md). The connected GitHub integration cannot create repositories in this session; ten distinct remote repos remain **not created**.
+
 ## Evidence and engineering
 
 - 10 domain-specific projects (folders in `projects/`) with local synthetic fixtures, evaluation objectives, safety cases, workflows, original SVG diagrams and graphics.
