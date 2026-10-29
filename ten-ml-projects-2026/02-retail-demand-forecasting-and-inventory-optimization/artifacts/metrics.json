@@ -1,0 +1,29 @@
+{
+  "dataset": "synthetic",
+  "execution_seconds": 0.45,
+  "features": [
+    "lag7_sales",
+    "last7_mean",
+    "day_of_week",
+    "promo",
+    "day_index"
+  ],
+  "mode": "retail",
+  "models": {
+    "Random Forest": {
+      "mae": 4.716,
+      "rmse": 5.912,
+      "wape": 0.0929
+    },
+    "Seasonal naive": {
+      "mae": 9.033,
+      "rmse": 11.039,
+      "wape": 0.1781
+    }
+  },
+  "note": "Reorder simulation assumes independent demand variation; no stock constraints, sales censoring or supplier data.",
+  "reorder_point_units": 409,
+  "safety_stock_units": 39,
+  "seed": 42,
+  "split": "chronological last 90 days"
+}
