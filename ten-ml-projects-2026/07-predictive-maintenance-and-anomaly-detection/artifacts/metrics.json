@@ -1,0 +1,35 @@
+{
+  "dataset": "synthetic",
+  "execution_seconds": 0.34,
+  "features": [
+    "temp_c",
+    "vibration",
+    "pressure",
+    "hours_used"
+  ],
+  "limitation": "Not validated on any real-world dataset. Research/demo use only.",
+  "mode": "maintenance",
+  "models": {
+    "Logistic Regression": {
+      "brier": 0.0371,
+      "f1": 0.9349,
+      "pr_auc": 0.99,
+      "precision": 0.8971,
+      "recall": 0.976,
+      "roc_auc": 0.9935
+    },
+    "Random Forest": {
+      "brier": 0.0377,
+      "f1": 0.937,
+      "pr_auc": 0.9874,
+      "precision": 0.9225,
+      "recall": 0.952,
+      "roc_auc": 0.9917
+    }
+  },
+  "positive_rate": 0.3838,
+  "records": 1300,
+  "seed": 42,
+  "selected": "Logistic Regression",
+  "split": "stratified holdout"
+}
