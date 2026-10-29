@@ -117,7 +117,7 @@ if __name__=="__main__":
     (folder/"app"/"main.py").write_text(MAIN.replace("__SLUG__",slug).replace("__TITLE__",name.replace("-"," ")),encoding="utf8")
     (folder/"tests").mkdir()
     (folder/"tests"/"test_demo.py").write_text(TEST,encoding="utf8")
-    (folder/"pytest.ini").write_text("[pytest]\\npythonpath = .\\ntestpaths = tests\\n",encoding="utf8")
+    (folder/"pytest.ini").write_text("[pytest]\npythonpath = .\ntestpaths = tests\n",encoding="utf8")
     (folder/".github"/"workflows").mkdir(parents=True)
     (folder/".github"/"workflows"/"ci.yml").write_text(CI,encoding="utf8")
     content=(ROOT/"projects"/slug/"README.md").read_text(encoding="utf8")
