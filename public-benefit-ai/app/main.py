@@ -1,5 +1,9 @@
 """FastAPI gateway for the ten portfolio applications."""
 from typing import Any
+from time import perf_counter
+from os import getenv
+from .storage import SQLiteDemoMetrics
+from .source_registry import source_manifest
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict
 from fastapi.middleware.cors import CORSMiddleware
@@ -32,6 +36,19 @@ def health():
 def projects():
     return [{"slug":s,"name":n,"engine":e} for s,(n,e) in PROJECTS.items()]
 
+@app.get("/api/v1/{slug}/sources")
+def sources(slug: str):
+    if slug not in PROJECTS:
+        raise HTTPException(status_code=404,detail="Unknown project")
+    return source_manifest(slug)
+
+@app.get("/api/v1/demo-metrics")
+def demo_metrics():
+    if getenv("DEMO_DB_ENABLED","false").lower() not in ("true","1"):
+        return {"enabled":False,"notice":"No request telemetry is stored by default","projects":[]}
+    return {"enabled":True,"notice":"Only project slug, run time and abstention count are stored","projects":SQLiteDemoMetrics().summary()}
+
+
 @app.post("/api/v1/{slug}/analyze")
 def analyze(slug: str, body: dict[str,Any]):
     if slug not in PROJECTS:
@@ -42,6 +59,11 @@ def analyze(slug: str, body: dict[str,Any]):
     # Remove nulls so each engine can use its deterministic defaults.
     body={k:v for k,v in body.items() if v is not None}
     try:
-        return process(slug,body)
+        started=perf_counter()
+        outcome=process(slug,body)
+        if getenv("DEMO_DB_ENABLED","false").lower() in ("true","1"):
+            SQLiteDemoMetrics().record(slug,(perf_counter()-started)*1000,
+                                       bool(outcome["result"].get("abstained",False)))
+        return outcome
     except (ValueError,TypeError,KeyError) as exc:
         raise HTTPException(status_code=422,detail=str(exc)) from exc
