@@ -1,0 +1,15 @@
+{
+  "dataset": "scikit-learn Iris (bundled public sample)",
+  "execution_seconds": 0.19,
+  "mode": "mlops",
+  "models": {
+    "Logistic Regression": 0.907,
+    "Random Forest": 0.907
+  },
+  "note": "Locally reproducible release demo; no actual cloud deployment, MLflow registry or automated retraining.",
+  "reference_stats": "artifacts/reference.json",
+  "release_gate_pass": true,
+  "seed": 42,
+  "selected": "Logistic Regression",
+  "split": "stratified 28% holdout"
+}
