@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Public Benefit AI | Ten Local Demos</title>
+<style>:root{--ink:#090909;--card:#141414;--ivory:#F5F0E6;--gold:#D4AF65;--muted:#B8B4AC;--line:#3B3324;color-scheme:dark}
+*{box-sizing:border-box}body{background:var(--ink);color:var(--ivory);font:15px/1.55 system-ui,Arial;margin:0}
+header,main,footer{max-width:1160px;margin:auto;padding:32px 22px}header h1{font:clamp(34px,5vw,62px)/1.13 Georgia,serif;max-width:890px;margin:18px 0}header h1 span,.eyebrow{color:var(--gold)}header p,.hint{color:var(--muted)}.eyebrow{letter-spacing:.2em;font-weight:700;font-size:12px}
+.alert{border-left:3px solid var(--gold);background:var(--card);padding:18px 22px;color:var(--ivory);border-radius:3px}
+.grid{display:grid;grid-template-columns:minmax(270px,380px) 1fr;gap:24px;margin-top:35px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+h2{font:25px Georgia,serif;margin:0 0 16px}.items{display:grid;gap:8px}.item{appearance:none;background:#111;border:1px solid var(--line);border-radius:8px;padding:13px;text-align:left;color:var(--ivory);font:inherit;cursor:pointer}
+.item[aria-selected="true"]{border-color:var(--gold);color:var(--gold);background:#222016}.item:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+label{display:block;color:var(--gold);font-weight:700;margin-top:18px;margin-bottom:8px}textarea{width:100%;min-height:180px;resize:vertical;background:#090909;border:1px solid var(--line);border-radius:8px;color:var(--ivory);padding:15px;font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+button.run{background:var(--gold);color:#090909;border:0;padding:13px 24px;border-radius:9px;font-weight:800;cursor:pointer;margin-top:16px}
+button.run:disabled{opacity:.6;cursor:wait}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#090909;border:1px solid var(--line);padding:16px;border-radius:9px;min-height:120px;color:#E6D6AF;font:13px/1.55 ui-monospace,Consolas,monospace}a{color:var(--gold)}footer{border-top:1px solid var(--line);color:var(--muted)}.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.status{color:var(--muted);font-size:13px}
+@media(max-width:750px){.grid{grid-template-columns:1fr}}</style></head>
+<body><header><div class="eyebrow">AI / ML / RESPONSIBLE GENAI ENGINEERING</div>
+<h1>Ten experiments for <span>public benefit</span></h1>
+<p>Explore ten individually designed project prototypes through a local FastAPI service. Source-linked answers, forecasting baselines, classification, clustering and protected record-review examples are all based on fictional inputs.</p>
+<div class="alert" role="note">Offline synthetic-data engineering demos, not official warning systems, medical services, crisis response infrastructure or government decision tools. Never enter real personal, health, emergency or missing-person data.</div>
+</header>
+<main><div class="grid"><section class="panel"><h2>Choose a project</h2><div class="items" role="listbox" aria-label="Project selection" id="items"></div></section>
+<section class="panel"><h2 id="projectTitle">Select a project</h2><p class="hint">Edit the sample payload and run it against your <strong>locally started</strong> API server. The browser never sends requests to a public LLM or external website.</p>
+<label for="request">Demo request (JSON)</label><textarea id="request" spellcheck="false"></textarea><div class="meta"><button class="run" id="run">Run local analysis</button><span class="status" id="status" role="status" aria-live="polite">Start API: uvicorn app.main:app --reload</span></div>
+<h2 style="margin-top:28px">Structured output</h2><pre id="output" tabindex="0" aria-live="polite">Not yet run.</pre><a id="source" target="_blank" rel="noopener noreferrer">Open full source, diagrams and evaluation details ↗</a></section></div></main>
+<footer>Copyright 2026 · Project demonstrations only. Validate independently before any real-world use.</footer>
+<script>
+"use strict";
+const projects=[{"slug":"air-quality-environmental-health-monitor","name":"AI Air Quality and Environmental Health Monitor","example":{"observations":[38,40,45,42,50,48,51,47,53,52,57,54,55,59,58,60]}}];
+const dom={items:document.querySelector("#items"),title:document.querySelector("#projectTitle"),request:document.querySelector("#request"),run:document.querySelector("#run"),status:document.querySelector("#status"),out:document.querySelector("#output"),source:document.querySelector("#source")};
+let active=0;
+function show(i){
+ active=i;
+ const p=projects[i];
+ dom.title.textContent=p.name;
+ dom.request.value=JSON.stringify(p.example,null,2);
+ dom.out.textContent="Not yet run.";
+ dom.status.textContent="Local API required at http://127.0.0.1:8000";
+ dom.source.href="https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development/tree/main/public-benefit-ai/projects/"+p.slug;
+ [...dom.items.children].forEach((b,j)=>b.setAttribute("aria-selected",String(i===j)));
+}
+projects.forEach((p,i)=>{
+ const b=document.createElement("button");
+ b.className="item";b.type="button";b.setAttribute("role","option");b.textContent=String(i+1).padStart(2,"0")+" · "+p.name;
+ b.addEventListener("click",()=>show(i));dom.items.appendChild(b);
+});
+dom.run.addEventListener("click",async()=>{
+ let obj;
+ try{obj=JSON.parse(dom.request.value);if(!obj||Array.isArray(obj)||typeof obj!=="object")throw Error("Object JSON required");}
+ catch(e){dom.status.textContent="Invalid JSON input";dom.out.textContent=String(e.message);return;}
+ dom.run.disabled=true;dom.status.textContent="Sending request to local API…";
+ try{
+  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),12000);
+  const response=await fetch("http://127.0.0.1:8000/api/v1/analyze",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(obj),signal:controller.signal}).finally(()=>clearTimeout(timeout));
+  const data=await response.json();dom.out.textContent=JSON.stringify(data,null,2);
+  dom.status.textContent=response.ok?"Returned from local API · synthetic-data demo":"Local API rejected request · HTTP "+response.status;
+ }catch(e){dom.status.textContent="Cannot reach local API — start FastAPI on port 8000";dom.out.textContent=String(e.message)}
+ finally{dom.run.disabled=false}
+});
+show(0);
+</script></body></html>
