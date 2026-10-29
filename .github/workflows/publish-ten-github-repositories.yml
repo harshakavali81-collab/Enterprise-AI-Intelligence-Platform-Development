@@ -1,0 +1,47 @@
+name: Create ten independent public GitHub repositories
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: public-benefit-ai
+    env:
+      GH_TOKEN: ${{ secrets.PUBLIC_REPO_CREATION_TOKEN }}
+      GIT_TERMINAL_PROMPT: "0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check opt-in creation credentials
+        shell: bash
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Configure the repo secret PUBLIC_REPO_CREATION_TOKEN with permission to create public repositories. Default GITHUB_TOKEN cannot create new remote repositories."
+            exit 1
+          fi
+          gh auth status
+      - name: Export ten standalone source trees
+        run: python scripts/export_standalone.py --replace
+      - name: Publish ten independent public repositories
+        run: python scripts/export_standalone.py --publish --replace
+      - name: Verify all ten new remote repositories
+        shell: bash
+        run: |
+          python - <<'PY'
+          import ast, subprocess
+          from pathlib import Path
+          script=Path("scripts/export_standalone.py").read_text(encoding="utf8")
+          node=ast.parse(script)
+          assigned=next(x for x in node.body if isinstance(x,ast.Assign) and any(isinstance(t,ast.Name) and t.id=="TITLES" for t in x.targets))
+          names=list(ast.literal_eval(assigned.value).values())
+          assert len(names)==10
+          for name in names:
+              dest=f"harshakavali81-collab/{name}"
+              subprocess.run(["gh","repo","view",dest],check=True,stdout=subprocess.DEVNULL)
+              print(f"VERIFIED {dest}")
+          PY
