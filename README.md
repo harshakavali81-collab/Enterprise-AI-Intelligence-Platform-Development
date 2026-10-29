@@ -66,3 +66,20 @@ The API uses the configured database and external LLM/provider credentials where
 ## License
 
 See [LICENSE](LICENSE).
+
+## 10 new AI/ML engineering demonstrations (October 2026)
+
+**[Browse the ten-project collection](ten-ml-projects-2026/README.md)** · **[Portfolio showcase](https://github.com/harshakavali81-collab/harshavardhan-portfolio/blob/main/ml-projects.html)**
+
+1. [Real-Time Fraud Detection and Risk Scoring Platform](ten-ml-projects-2026/01-real-time-fraud-detection-and-risk-scoring-platform/README.md)
+2. [Retail Demand Forecasting and Inventory Optimization](ten-ml-projects-2026/02-retail-demand-forecasting-and-inventory-optimization/README.md)
+3. [Customer Churn Prediction and Retention Intelligence](ten-ml-projects-2026/03-customer-churn-prediction-and-retention-intelligence/README.md)
+4. [Computer Vision Quality Inspection System](ten-ml-projects-2026/04-computer-vision-quality-inspection-system/README.md)
+5. [Personalized Recommendation Engine](ten-ml-projects-2026/05-personalized-recommendation-engine/README.md)
+6. [Multilingual Semantic Search and Knowledge Assistant](ten-ml-projects-2026/06-multilingual-semantic-search-and-knowledge-assistant/README.md)
+7. [Predictive Maintenance and Anomaly Detection](ten-ml-projects-2026/07-predictive-maintenance-and-anomaly-detection/README.md)
+8. [Credit Risk and Loan Default Prediction](ten-ml-projects-2026/08-credit-risk-and-loan-default-prediction/README.md)
+9. [Medical Image Classification Research Assistant](ten-ml-projects-2026/09-medical-image-classification-research-assistant/README.md)
+10. [End-to-End MLOps Model Deployment Platform](ten-ml-projects-2026/10-end-to-end-mlops-model-deployment-platform/README.md)
+
+Each folder contains source, unit tests, FastAPI, Docker, model/data documentation, architecture SVG, model metrics JSON and evaluation SVG based on **synthetic or bundled sample data**. All ten local smoke-test suites passed before publication; remote GitHub Actions status must be checked independently. None of these projects claims validated banking/medical/industrial decisions, real integrations, or public production hosting. New standalone repositories were not created because the available GitHub integration cannot create repositories.
