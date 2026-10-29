@@ -1,0 +1,35 @@
+{
+  "dataset": "synthetic",
+  "execution_seconds": 0.36,
+  "features": [
+    "log_amount",
+    "velocity",
+    "cross_border",
+    "new_device"
+  ],
+  "limitation": "Not validated on any real-world dataset. Research/demo use only.",
+  "mode": "fraud",
+  "models": {
+    "Logistic Regression": {
+      "brier": 0.1179,
+      "f1": 0.0938,
+      "pr_auc": 0.2222,
+      "precision": 0.0517,
+      "recall": 0.5,
+      "roc_auc": 0.8197
+    },
+    "Random Forest": {
+      "brier": 0.0292,
+      "f1": 0.1818,
+      "pr_auc": 0.1993,
+      "precision": 0.2,
+      "recall": 0.1667,
+      "roc_auc": 0.7179
+    }
+  },
+  "positive_rate": 0.0177,
+  "records": 1300,
+  "seed": 42,
+  "selected": "Logistic Regression",
+  "split": "stratified holdout"
+}
