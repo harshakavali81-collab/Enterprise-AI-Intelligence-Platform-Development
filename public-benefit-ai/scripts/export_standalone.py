@@ -84,7 +84,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - run: pytest -q
+      - run: python -m pytest -q
 '''
 def run(cmd:list[str],cwd:Path|None=None,check:bool=True):
     return subprocess.run(cmd,cwd=cwd,check=check,text=True)
@@ -117,6 +117,7 @@ if __name__=="__main__":
     (folder/"app"/"main.py").write_text(MAIN.replace("__SLUG__",slug).replace("__TITLE__",name.replace("-"," ")),encoding="utf8")
     (folder/"tests").mkdir()
     (folder/"tests"/"test_demo.py").write_text(TEST,encoding="utf8")
+    (folder/"pytest.ini").write_text("[pytest]\\npythonpath = .\\ntestpaths = tests\\n",encoding="utf8")
     (folder/".github"/"workflows").mkdir(parents=True)
     (folder/".github"/"workflows"/"ci.yml").write_text(CI,encoding="utf8")
     content=(ROOT/"projects"/slug/"README.md").read_text(encoding="utf8")
