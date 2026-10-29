@@ -125,7 +125,7 @@ if __name__=="__main__":
     # The collection frontend embeds a line: const projects=<JSON>;
     import re
     single_project=json.dumps([{"slug":slug,"name":name.replace("-"," "),"example":json.loads((folder/"sample_request.json").read_text(encoding="utf8"))}])
-    source_ui=re.sub(r'const projects=\\[.*?\\];',lambda _m:"const projects="+single_project+";",source_ui,count=1)
+    source_ui=re.sub(r'const projects=.*?;',lambda _m:"const projects="+single_project+";",source_ui,count=1)
     source_ui=source_ui.replace('"http://127.0.0.1:8000/api/v1/"+projects[active].slug+"/analyze"',
                                 '"http://127.0.0.1:8000/api/v1/analyze"')
     (ui_folder/"index.html").write_text(source_ui,encoding="utf8")
