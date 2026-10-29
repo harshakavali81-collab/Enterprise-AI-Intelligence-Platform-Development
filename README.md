@@ -1,85 +1,58 @@
-# Enterprise AI Intelligence Platform
+# Privacy-Preserving Missing-Person Information Coordination
 
-An enterprise-oriented AI application that combines document retrieval, analytics, machine-learning predictions, and approval-based workflows behind a FastAPI service and React interface. It is a portfolio/demo project: validate configuration, access controls, and model outputs before using it with real business data.
+![Original project cover](assets/cover.svg)
 
-## Capabilities
+> **Status:** Demonstration-grade source code using synthetic examples; no real operational deployment, authorized live feed, or independently verified field impact.
 
-- Document ingestion, chunking, retrieval, reranking, and cited answers
-- Read-only SQL analytics with query validation
-- Customer churn, demand forecasting, and anomaly-detection endpoints
-- Agent orchestration for knowledge, SQL, ML, and report requests
-- Human approval workflows, JWT authentication, and role-aware permissions
-- React dashboard, PostgreSQL with pgvector, Redis, and MLflow integrations
+**Public need / intended users:** Reducing duplicate intake while protecting sensitive records and preventing false identity matches. **Audience:** Authorized organizations conducting synthetic case-review exercises.
 
-## Run locally
+**Technical evidence:** Pseudonymous similarity • privacy • human decisions. Difflib sequence similarity for fictional tags with opaque reference codes; never merge a case or recognize faces.
 
-Prerequisites: Python 3.11 or newer, Node.js 20, and Docker Desktop with Docker Compose v2.
+## Reproducible setup
 
-1. Copy `.env.example` to `.env` and set a unique `SECRET_KEY`, database password, and any provider credentials you need. Do not use the example values in a deployed environment.
-2. Install the Python dependencies and create the sample data and local SQLite database:
+Start from this standalone branch root:
 
-   ```sh
-   python -m pip install -r requirements.txt
-   python generate_data.py
-   ```
-
-3. Start the data services and API:
-
-   ```sh
-   docker compose up --build
-   ```
-
-4. Open the frontend at `http://localhost:3000`, API documentation at `http://localhost:8000/docs`, and health status at `http://localhost:8000/health`.
-
-To run the backend without Docker, create and activate a virtual environment, install `requirements.txt`, start PostgreSQL with pgvector and Redis, then run:
-
-```sh
-uvicorn backend.main:app --reload
+```bash
+pip install -r requirements.txt
+python cli.py
+uvicorn app.main:app --reload
+pytest -q
+python cli.py
 ```
 
-For frontend development, run `npm ci` and `npm start` from `frontend/`. Set `REACT_APP_API_URL` when the API is not available at the default local address.
+**API endpoint:** `POST /api/v1/analyze`
 
-## Validate
+**Example payload:** [sample_request.json](sample_request.json). The FastAPI interactive schema is at `http://127.0.0.1:8000/docs`.
 
-```sh
-python generate_data.py
-python -m pytest tests/ -q
-flake8 backend/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
-```
+## Architecture, graphics and reproducibility
 
-Build the frontend with `npm ci` followed by `npm run build` from `frontend/`. The CI workflow also exercises backend tests, frontend build, and Docker image builds.
+![Architecture illustration](assets/architecture.svg)
 
-## Project map
+![Illustrative, fictional-data graphic](assets/synthetic-trend.svg)
 
-- `backend/`: API routes, agents, RAG, ML, security, database, and services
-- `frontend/`: React and TypeScript user interface
-- `sql/`: database schema and analytics queries
-- `data/sample/`: sample documents and tabular data
-- `evaluation/` and `tests/`: evaluation datasets, scripts, and automated tests
-- `docs/`: architecture, workflow, security, API, evaluation, and deployment notes
-- `dashboard/`, `notebooks/`, `reports/`, `presentation/`: analytics and project deliverables
+- [Workflow source](docs/workflow.mmd) and [detailed architecture](docs/ARCHITECTURE.md).
+- [Model card and evaluation plan](docs/MODEL_CARD.md), [threat model](docs/THREAT_MODEL.md).
+- Synthetic fixture: `sample_request.json`; run in `cli.py`.
+- Shared service: `app/` (model and routing implementation), `tests/` (automated checks), `Dockerfile`, and this repository's pytest suite.
+- Frontend dashboard: `frontend/index.html`; this requires the API server to function.
 
-## Configuration and limitations
+## Dataset / source trust
 
-The API uses the configured database and external LLM/provider credentials where enabled. Set a strong secret and review CORS, exposed ports, sample data, and database permissions before deployment. External provider calls and production-grade infrastructure are not required for the automated unit tests. See [deployment notes](docs/11_Deployment.md) and [security notes](docs/09_Security.md) for additional context.
+**Planned authorized sources:** Only separately authorized case records (NOT connected or public). Demonstration data is fabricated; no source licensing or source freshness has been verified through a real ingest.
 
-## License
+## Evaluation: do not fabricate results
 
-See [LICENSE](LICENSE).
+**Measure:** Labeled-pair precision/recall, false-match rate, audit trace completeness. The shared forecast modules report baseline and model MAE on chronological holdout when enough observations are provided. Running the evaluation script computes a small synthetic retrieval smoke test. Neither proves live field accuracy.
 
-## 10 new AI/ML engineering demonstrations (October 2026)
+## Responsible AI constraints
 
-**[Browse the ten-project collection](ten-ml-projects-2026/README.md)** · **[Portfolio showcase](https://github.com/harshakavali81-collab/harshavardhan-portfolio/blob/main/ml-projects.html)**
+No public person search, no publication of identities or face recognition. Report uncertainty and require human approval for consequential decisions.
 
-1. [Real-Time Fraud Detection and Risk Scoring Platform](ten-ml-projects-2026/01-real-time-fraud-detection-and-risk-scoring-platform/README.md)
-2. [Retail Demand Forecasting and Inventory Optimization](ten-ml-projects-2026/02-retail-demand-forecasting-and-inventory-optimization/README.md)
-3. [Customer Churn Prediction and Retention Intelligence](ten-ml-projects-2026/03-customer-churn-prediction-and-retention-intelligence/README.md)
-4. [Computer Vision Quality Inspection System](ten-ml-projects-2026/04-computer-vision-quality-inspection-system/README.md)
-5. [Personalized Recommendation Engine](ten-ml-projects-2026/05-personalized-recommendation-engine/README.md)
-6. [Multilingual Semantic Search and Knowledge Assistant](ten-ml-projects-2026/06-multilingual-semantic-search-and-knowledge-assistant/README.md)
-7. [Predictive Maintenance and Anomaly Detection](ten-ml-projects-2026/07-predictive-maintenance-and-anomaly-detection/README.md)
-8. [Credit Risk and Loan Default Prediction](ten-ml-projects-2026/08-credit-risk-and-loan-default-prediction/README.md)
-9. [Medical Image Classification Research Assistant](ten-ml-projects-2026/09-medical-image-classification-research-assistant/README.md)
-10. [End-to-End MLOps Model Deployment Platform](ten-ml-projects-2026/10-end-to-end-mlops-model-deployment-platform/README.md)
+**Not yet complete:** licensed production dataset and adapters, professionally reviewed multilanguage support, large independent real-world evaluations, production authentication, secure audit trail, public hosting and domain-expert acceptance. Details: [Acceptance criteria](docs/ACCEPTANCE.md).
 
-Each folder contains source, unit tests, FastAPI, Docker, model/data documentation, architecture SVG, model metrics JSON and evaluation SVG based on **synthetic or bundled sample data**. All ten local smoke-test suites passed before publication; remote GitHub Actions status must be checked independently. None of these projects claims validated banking/medical/industrial decisions, real integrations, or public production hosting. New standalone repositories were not created because the available GitHub integration cannot create repositories.
+[Collection](https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development/tree/main/public-benefit-ai/projects) · [Main repository](https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development)
+
+
+## Source distribution
+
+This project is published in a **standalone branch of the Enterprise AI repository**, not a newly created separate GitHub repository. Run `docker compose up --build` to start the API and browser on ports 8000 and 5173. Fixture is synthetic. Authorized real-world deployment has not been validated.
