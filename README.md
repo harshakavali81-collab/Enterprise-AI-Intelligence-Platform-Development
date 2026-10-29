@@ -2,7 +2,19 @@
 
 An enterprise-oriented AI application that combines document retrieval, analytics, machine-learning predictions, and approval-based workflows behind a FastAPI service and React interface. It is a portfolio/demo project: validate configuration, access controls, and model outputs before using it with real business data.
 
-## Capabilities
+[Setup](#local-installation--setup-guide) · [Architecture](#architecture--system-design-diagram) · [Detailed guide](PROJECT_GUIDE.md) · [Repository standard](docs/REPOSITORY_STANDARD.md)
+
+## Visuals
+
+![Project diagram / illustration](<portfolio/assets/mobilitypulse/01-hero.svg>)
+
+Existing project visual; diagrams and illustrative graphics are not evidence of a deployed application.
+
+## Live Link / Demo
+
+Run the local demo using the setup guide below. No public deployment URL has been verified for this documentation update.
+
+## Key Features
 
 - Document ingestion, chunking, retrieval, reranking, and cited answers
 - Read-only SQL analytics with query validation
@@ -11,7 +23,22 @@ An enterprise-oriented AI application that combines document retrieval, analytic
 - Human approval workflows, JWT authentication, and role-aware permissions
 - React dashboard, PostgreSQL with pgvector, Redis, and MLflow integrations
 
-## Run locally
+## Tech Stack
+
+![Python](https://img.shields.io/badge/Python-334155?style=flat-square) ![FastAPI](https://img.shields.io/badge/FastAPI-334155?style=flat-square) ![scikit-learn](https://img.shields.io/badge/scikit--learn-334155?style=flat-square) ![Pandas](https://img.shields.io/badge/Pandas-334155?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-334155?style=flat-square) ![React](https://img.shields.io/badge/React-334155?style=flat-square) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-334155?style=flat-square) ![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square) ![Docker](https://img.shields.io/badge/Docker-334155?style=flat-square)
+
+Dependency versions and optional packages are defined in the repository manifests.
+
+## Architecture / System Design Diagram
+
+[Architecture documentation / diagram](<public-benefit-ai/docs/ARCHITECTURE.md>)
+
+## Local Installation & Setup Guide
+
+```bash
+git clone https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development.git
+cd Enterprise-AI-Intelligence-Platform-Development
+```
 
 Prerequisites: Python 3.11 or newer, Node.js 20, and Docker Desktop with Docker Compose v2.
 
@@ -39,47 +66,38 @@ uvicorn backend.main:app --reload
 
 For frontend development, run `npm ci` and `npm start` from `frontend/`. Set `REACT_APP_API_URL` when the API is not available at the default local address.
 
-## Validate
+## Challenges & Solutions
 
-```sh
-python generate_data.py
-python -m pytest tests/ -q
-flake8 backend/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
-```
+**Repository organization:** this project uses `backend/`, `frontend/`. Keeping those paths stable avoids breaking imports, asset links and deployment commands while the documentation follows a shared format. Project-specific technical limitations and prior release evidence are retained in [Project guide](PROJECT_GUIDE.md).
 
-Build the frontend with `npm ci` followed by `npm run build` from `frontend/`. The CI workflow also exercises backend tests, frontend build, and Docker image builds.
+## Future Improvements
 
-## Project map
+- Capture a reproducible end-to-end demo with runtime versions and sample inputs.
+- Expand regression checks for invalid inputs and documented edge cases.
+- Record measured results, data provenance and deployment limitations alongside each release.
 
-- `backend/`: API routes, agents, RAG, ML, security, database, and services
-- `frontend/`: React and TypeScript user interface
-- `sql/`: database schema and analytics queries
-- `data/sample/`: sample documents and tabular data
-- `evaluation/` and `tests/`: evaluation datasets, scripts, and automated tests
-- `docs/`: architecture, workflow, security, API, evaluation, and deployment notes
-- `dashboard/`, `notebooks/`, `reports/`, `presentation/`: analytics and project deliverables
+## Scope and supporting evidence
 
-## Configuration and limitations
+An enterprise-oriented AI application that combines document retrieval, analytics, machine-learning predictions, and approval-based workflows behind a FastAPI service and React interface. It is a portfolio/demo project: validate configuration, access controls, and model outputs before using it with real business data.
 
-The API uses the configured database and external LLM/provider credentials where enabled. Set a strong secret and review CORS, exposed ports, sample data, and database permissions before deployment. External provider calls and production-grade infrastructure are not required for the automated unit tests. See [deployment notes](docs/11_Deployment.md) and [security notes](docs/09_Security.md) for additional context.
+## Repository Structure
+
+| Location | Purpose |
+| --- | --- |
+| `backend/` | Backend services |
+| `frontend/` | Frontend interface |
+| `tests/` | Tests |
+| `docs/` | Documentation |
+| `data/` | Data and samples |
+| `sql/` | SQL schema and analysis |
+| `.github/` | Issue forms, PR template and automated checks |
+
+[Complete file inventory and workflow](docs/REPOSITORY_STANDARD.md). Runtime entry points retain their existing paths.
+
+## Workflow & Tracking
+
+Use the [bug and feature forms](https://github.com/harshakavali81-collab/Enterprise-AI-Intelligence-Platform-Development/issues/new/choose) to define work with acceptance criteria. Keep tasks in Todo → In progress → Review → Done, and link a pull request with `Closes #<number>`. See [the maintenance workflow](docs/REPOSITORY_STANDARD.md#workflow).
 
 ## License
 
-See [LICENSE](LICENSE).
-
-## 10 new AI/ML engineering demonstrations (October 2026)
-
-**[Browse the ten-project collection](ten-ml-projects-2026/README.md)** · **[Portfolio showcase](https://github.com/harshakavali81-collab/harshavardhan-portfolio/blob/main/ml-projects.html)**
-
-1. [Real-Time Fraud Detection and Risk Scoring Platform](ten-ml-projects-2026/01-real-time-fraud-detection-and-risk-scoring-platform/README.md)
-2. [Retail Demand Forecasting and Inventory Optimization](ten-ml-projects-2026/02-retail-demand-forecasting-and-inventory-optimization/README.md)
-3. [Customer Churn Prediction and Retention Intelligence](ten-ml-projects-2026/03-customer-churn-prediction-and-retention-intelligence/README.md)
-4. [Computer Vision Quality Inspection System](ten-ml-projects-2026/04-computer-vision-quality-inspection-system/README.md)
-5. [Personalized Recommendation Engine](ten-ml-projects-2026/05-personalized-recommendation-engine/README.md)
-6. [Multilingual Semantic Search and Knowledge Assistant](ten-ml-projects-2026/06-multilingual-semantic-search-and-knowledge-assistant/README.md)
-7. [Predictive Maintenance and Anomaly Detection](ten-ml-projects-2026/07-predictive-maintenance-and-anomaly-detection/README.md)
-8. [Credit Risk and Loan Default Prediction](ten-ml-projects-2026/08-credit-risk-and-loan-default-prediction/README.md)
-9. [Medical Image Classification Research Assistant](ten-ml-projects-2026/09-medical-image-classification-research-assistant/README.md)
-10. [End-to-End MLOps Model Deployment Platform](ten-ml-projects-2026/10-end-to-end-mlops-model-deployment-platform/README.md)
-
-Each folder contains source, unit tests, FastAPI, Docker, model/data documentation, architecture SVG, model metrics JSON and evaluation SVG based on **synthetic or bundled sample data**. All ten local smoke-test suites passed before publication; remote GitHub Actions status must be checked independently. None of these projects claims validated banking/medical/industrial decisions, real integrations, or public production hosting. New standalone repositories were not created because the available GitHub integration cannot create repositories.
+See [LICENSE](LICENSE) for the existing terms.
