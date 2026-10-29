@@ -1,0 +1,39 @@
+{
+  "dataset": "synthetic",
+  "execution_seconds": 0.54,
+  "features": [
+    "mean",
+    "std",
+    "q90",
+    "q99",
+    "vertical_edges",
+    "horizontal_edges",
+    "center_brightness",
+    "bright_ratio"
+  ],
+  "limitation": "Not validated on any real-world dataset. Research/demo use only.",
+  "mode": "medical",
+  "models": {
+    "Logistic Regression": {
+      "brier": 0.0,
+      "f1": 1.0,
+      "pr_auc": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0
+    },
+    "Random Forest": {
+      "brier": 0.0,
+      "f1": 1.0,
+      "pr_auc": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0
+    }
+  },
+  "positive_rate": 0.4062,
+  "records": 320,
+  "seed": 42,
+  "selected": "Random Forest",
+  "split": "group-by-patient"
+}
