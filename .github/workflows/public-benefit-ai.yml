@@ -37,3 +37,10 @@ jobs:
           test "$(find dist/independent-repositories -mindepth 1 -maxdepth 1 -type d | wc -l)" -eq 10
       - name: Compile all exported Python code
         run: python -m compileall -q dist/independent-repositories
+      - name: Upload ten independent repository source packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: ten-github-ready-repositories
+          path: public-benefit-ai/dist/independent-repositories/
+          retention-days: 14
+          if-no-files-found: error
