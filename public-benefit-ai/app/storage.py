@@ -5,6 +5,7 @@ This is local-only demonstration telemetry, not production audit infrastructure.
 """
 import sqlite3
 from pathlib import Path
+from contextlib import closing
 import tempfile
 from time import time
 
@@ -22,8 +23,9 @@ CREATE INDEX IF NOT EXISTS demo_runs_slug_time ON demo_runs(project_slug, record
 class SQLiteDemoMetrics:
     def __init__(self, path=None):
         self.path = str(path or (Path(tempfile.gettempdir()) / "public-benefit-ai-demo-metrics.sqlite3"))
-        with self._db() as conn:
+        with closing(self._db()) as conn:
             conn.executescript(VALID_SCHEMA)
+            conn.commit()
 
     def _db(self):
         conn=sqlite3.connect(self.path,timeout=10)
@@ -35,12 +37,12 @@ class SQLiteDemoMetrics:
             raise ValueError("Invalid project slug")
         if elapsed_ms<0 or elapsed_ms>3600000:
             raise ValueError("Invalid elapsed time")
-        with self._db() as db:
+        with closing(self._db()) as db, db:
             db.execute("INSERT INTO demo_runs(project_slug,recorded_at,elapsed_ms,abstained) VALUES(?,?,?,?)",
                        (slug,int(time()),round(elapsed_ms,3),int(bool(abstained))))
 
     def summary(self):
-        with self._db() as db:
+        with closing(self._db()) as db:
             rows=db.execute(
                 "SELECT project_slug, COUNT(*) AS runs, SUM(abstained) AS abstentions,"
                 " ROUND(AVG(elapsed_ms),2) AS mean_runtime_ms FROM demo_runs GROUP BY project_slug"

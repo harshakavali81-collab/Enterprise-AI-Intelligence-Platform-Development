@@ -37,7 +37,11 @@ MAIN='''"""Independent API for one public-benefit AI demonstration."""
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Any
+from time import perf_counter
+from os import getenv
 from app.engine import process
+from app.storage import SQLiteDemoMetrics
+from app.source_registry import source_manifest
 
 PROJECT_SLUG = "__SLUG__"
 app=FastAPI(title="__TITLE__",version="0.1.0",description="Synthetic portfolio demonstration, not a live public-safety service")
@@ -48,12 +52,27 @@ app.add_middleware(CORSMiddleware,allow_origins=["http://127.0.0.1:5173","http:/
 def health():
     return {"status":"ok","demo_mode":True,"project":PROJECT_SLUG}
 
+@app.get("/api/v1/sources")
+def sources():
+    return source_manifest(PROJECT_SLUG)
+
+@app.get("/api/v1/demo-metrics")
+def metrics():
+    if getenv("DEMO_DB_ENABLED","false").lower() not in ("true","1"):
+        return {"enabled":False,"projects":[]}
+    return {"enabled":True,"projects":SQLiteDemoMetrics().summary()}
+
 @app.post("/api/v1/analyze")
 def analyze(body:dict[str,Any]):
     if len(str(body))>30000:
         raise HTTPException(status_code=413,detail="Payload too large")
     try:
-        return process(PROJECT_SLUG,body)
+        started=perf_counter()
+        data=process(PROJECT_SLUG,body)
+        if getenv("DEMO_DB_ENABLED","false").lower() in ("true","1"):
+            SQLiteDemoMetrics().record(PROJECT_SLUG,(perf_counter()-started)*1000,
+                                       bool(data["result"].get("abstained",False)))
+        return data
     except (KeyError,ValueError,TypeError) as exc:
         raise HTTPException(status_code=422,detail=str(exc)) from exc
 '''
@@ -103,6 +122,7 @@ def export_one(slug:str,name:str,replace:bool=False)->Path:
     shutil.copytree(ROOT/"app",folder/"app",ignore=shutil.ignore_patterns("__pycache__","*.pyc"))
     shutil.copytree(ROOT/"projects"/slug/"assets",folder/"assets")
     shutil.copytree(ROOT/"projects"/slug/"docs",folder/"docs")
+    shutil.copy2(ROOT/"docs"/"DATA_STORAGE.md",folder/"docs"/"DATA_STORAGE.md")
     for file in ("requirements.txt","Dockerfile","docker-compose.yml",".gitignore",".env.example"):
         shutil.copy2(ROOT/file,folder/file)
     shutil.copy2(ROOT/"projects"/slug/"sample_request.json",folder/"sample_request.json")
