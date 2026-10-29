@@ -1,0 +1,8 @@
+flowchart TD
+  A[User training scenario] --> B[Validate and label input]
+  B --> C[Air readings engine]
+  C --> D{Evidence and uncertainty review}
+  D -->|Supported demo result| E[Return structured response]
+  D -->|Unsupported| F[Abstain or request human review]
+  E --> G[Display provenance and limitations]
+  F --> G

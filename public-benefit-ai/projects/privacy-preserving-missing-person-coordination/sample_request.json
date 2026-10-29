@@ -1,0 +1,11 @@
+{
+  "candidate": {
+    "description_tags": "blue bag bus terminal"
+  },
+  "existing": [
+    {
+      "reference_code": "DEMO-101",
+      "description_tags": "blue bag bus terminal"
+    }
+  ]
+}
