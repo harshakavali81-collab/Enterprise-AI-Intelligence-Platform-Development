@@ -1,0 +1,26 @@
+name: Public Benefit AI synthetic demo CI
+on:
+  push:
+    paths:
+      - 'public-benefit-ai/**'
+      - '.github/workflows/public-benefit-ai.yml'
+  pull_request:
+    paths:
+      - 'public-benefit-ai/**'
+      - '.github/workflows/public-benefit-ai.yml'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: public-benefit-ai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: public-benefit-ai/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: pytest -q
+      - run: python -m scripts.evaluate
